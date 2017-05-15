@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
   def destroy
     @cart = current_cart
     @cart_item = @cart.cart_items.find_by(product_id: params[:id]) #用find_by(product_id)找到相应的cart_item
-    @product = @cart_item.product
+    @product = @cart_item.product   #为什么需要这一步？cart_item和prodcut是多对多关系？还是一对多关系？还是一对一关系？
     @cart_item.destroy
 
     flash[:warning] = "成功将 #{@product.title} 从购物车删除！"
