@@ -7,9 +7,21 @@
   </div>
 
   <div class="group">
+    <%= f.input :author %>
+  </div>
+
+  <div class="group">
     <%= f.input :description %>
   </div>
 
+  <div class="group">
+    <%= f.input :publisher %>
+  </div>
+
+  <div class="group">
+    <%= f.input :pages %>
+  </div>
+  
   <div class="group">
     <%= f.input :quantity %>
   </div>
@@ -21,7 +33,7 @@
   <div class="group">
     <%= f.input :image, as: :file %>
   </div>
-  
+
   <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
 
 <% end %>
