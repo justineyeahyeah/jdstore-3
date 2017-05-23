@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post :pay_with_wechat
       post :apply_to_cancel
       post :apply_to_return_good
+      post :confirm_shipped
     end
   end
 

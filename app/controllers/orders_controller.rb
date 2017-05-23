@@ -61,6 +61,14 @@ class OrdersController < ApplicationController
     redirect_to :back
   end
 
+  def confirm_shipped
+    @order = Order.find(params[:id])
+    OrderMailer.notify_confirm_shipped(@order).deliver!
+    flash[:notice] = "已确认收货"
+    redirect_to :back
+  end
+
+
 
 
 

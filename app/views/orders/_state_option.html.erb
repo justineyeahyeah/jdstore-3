@@ -14,6 +14,7 @@
   <% when "shipping" %>
 
   <%= link_to("查看物流","#", class: "btn btn-info", method: :post) %>
+  <%= link_to("确认收货", confirm_shipped_order_path(order), class: "btn btn-info", method: :post) %>
 
   <% when "shipped" %>
     <%= link_to("申请退货",
