@@ -51,6 +51,7 @@ Product.create!(title: "我们仨",
     pages: 165,
     price: 15,
     quantity: 5,
+    is_shelved: true,
     image: open("https://images-cn.ssl-images-amazon.com/images/I/41pi7pBzTcL._SX348_BO1,204,203,200_.jpg")
     )
 
@@ -61,6 +62,7 @@ Product.create!(title: "解忧杂货店",
     pages: 297,
     price: 28,
     quantity: 10,
+    is_shelved: true,
     image: open("https://images-cn.ssl-images-amazon.com/images/I/51F6FK4cLGL.jpg")
     )
 

@@ -9,7 +9,7 @@
       <th width="220">Product Pic</th>
       <th>Name</th>
       <th>Price</th>
-      <th width="100"> Options</th>
+      <th width="200"> Options</th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +28,7 @@
           <% end %>
         </td>
         <td>
-          <%= product.title %>
+          <%= product.title %> <%= render_product_status(product) %>
         </td>
         <td>
           <%= product.price %>

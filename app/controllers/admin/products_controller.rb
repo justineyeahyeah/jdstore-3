@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   layout 'admin'
 
   def index
-    @products = Product.all.order("position ASC")
+    @products = Product.order("position ASC")
   end
 
   def new
@@ -51,7 +51,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image, :author, :publisher, :pages)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :author, :publisher, :pages, :is_shelved)
   end
 
 end
