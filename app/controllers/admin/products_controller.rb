@@ -46,6 +46,20 @@ class Admin::ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def shelve
+    @product = Product.find(params[:id])
+    @product.shelve!
+    redirect_to :back
+  end
+
+  def off_shelve
+    @product = Product.find(params[:id])
+    @product.off_shelve!
+    redirect_to :back
+  end
+
+
+
 
 
   private

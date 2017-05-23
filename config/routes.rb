@@ -33,6 +33,8 @@ Rails.application.routes.draw do
       member do
         post :move_up
         post :move_down
+        post :shelve
+        post :off_shelve
       end
     end
 
