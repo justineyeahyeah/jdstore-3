@@ -50,7 +50,14 @@ class OrdersController < ApplicationController
   def apply_to_cancel
     @order = Order.find(params[:id])
     OrderMailer.apply_cancel(@order).deliver!
-    flash[:notice] = "已提交申请"
+    flash[:notice] = "已提交取消订单申请"
+    redirect_to :back
+  end
+
+  def apply_to_return_good
+    @order = Order.find(params[:id])
+    OrderMailer.notify_apply_to_return_good(@order).deliver!
+    flash[:notice] = "已提交退货申请"
     redirect_to :back
   end
 

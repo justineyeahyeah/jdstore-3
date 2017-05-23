@@ -31,6 +31,23 @@ class OrderMailer < ApplicationMailer
     mail(to: @user.email, subject: "[JDStore] 您的订单 #{order.token}已取消")
   end
 
+  def notify_apply_to_return_good(order)
+    @order = order
+    @user = order.user
+    @product_lists = @order.product_lists
+
+    mail(to: "admin@test.com", subject: "[JDStore] 用户#{order.user.email}申请退货，订单号为#{order.token}")
+  end
+
+  def notify_good_returned(order)
+    @order = order
+    @user = order.user
+    @product_lists = @order.product_lists
+
+    mail(to: @user.email, subject: "[JDStore] 您的订单 #{order.token}退货申请已通过")
+  end
+
+
 
 
 end

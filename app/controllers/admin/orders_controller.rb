@@ -36,6 +36,7 @@ class Admin::OrdersController < ApplicationController
   def return
     @order = Order.find(params[:id])
     @order.return_good!
+    OrderMailer.notify_good_returned(@order).deliver!
     redirect_to :back
   end
 
