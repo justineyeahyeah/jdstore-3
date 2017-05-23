@@ -1,0 +1,20 @@
+<% case @order.aasm_state %>
+  <% when "order_placed" %>
+        <span>待付款</span>
+
+  <% when "paid" %>
+       <span>待发货</span>
+
+  <% when "shipping" %>
+       <span>待收货</span>
+
+  <% when "shipped" %>
+      <span>已收货</span>
+
+  <% when "order_cancelled" %>
+    <span>已取消订单</span>
+
+  <% when "good_returned" %>
+    <span>已退货订单</span>
+
+    <% end %>
