@@ -42,6 +42,7 @@
           <% else %>
             <%= link_to("上架", shelve_admin_product_path(product),method: :post, class: "btn btn-xs btn-default" ) %>
           <% end %>
+          <%= link_to("删除", admin_product_path(product), method: :delete) %>
         </td>
       </tr>
     <% end %>
