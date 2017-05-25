@@ -19,6 +19,10 @@
   </div>
 
   <div class="group">
+    <%= f.input :publication_date, start_year: 1950, end_year: Date.today.year %>
+  </div>
+
+  <div class="group">
     <%= f.input :pages %>
   </div>
 
