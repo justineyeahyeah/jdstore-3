@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.where(:is_shelved => true).order("position ASC")
+    if params[:category].blank?
+      @products = Product.where(:is_shelved => true).order("position ASC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.where(:is_shelved => true).where(:category_id => @category_id)
+    end
   end
 
   def show
@@ -25,7 +30,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :image, :author, :publisher, :pages, :is_shelved, :publication_date)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image, :author, :publisher, :pages, :is_shelved, :publication_date, :category_id)
   end
 
 end

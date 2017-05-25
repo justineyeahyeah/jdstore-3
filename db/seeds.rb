@@ -53,6 +53,7 @@ Product.create!(title: "我们仨",
     price: 15,
     quantity: 5,
     is_shelved: true,
+    category_id: 1,
     image: open("https://images-cn.ssl-images-amazon.com/images/I/41pi7pBzTcL._SX348_BO1,204,203,200_.jpg")
     )
 
@@ -65,6 +66,7 @@ Product.create!(title: "解忧杂货店",
     price: 28,
     quantity: 10,
     is_shelved: true,
+    category_id: 1,
     image: open("https://images-cn.ssl-images-amazon.com/images/I/51F6FK4cLGL.jpg")
     )
 
@@ -76,5 +78,11 @@ Product.create!(title: "解忧杂货店",
         pages: 697,
         price: 24,
         quantity: 10,
+        category_id: 1,
         image: open("https://images-cn.ssl-images-amazon.com/images/I/51WoT34TG0L.jpg")
         )
+
+# Initialize category
+    Category.create!(name: "youth")
+
+    Category.create!(name: "history")

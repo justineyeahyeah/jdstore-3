@@ -21,6 +21,7 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_list
+  belongs_to :category
 
   def shelve!
     self.is_shelved = true
