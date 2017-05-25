@@ -40,6 +40,7 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'acts_as_list'
 gem 'jquery-turbolinks'
+gem 'annotate'
 
 
 group :development, :test do
