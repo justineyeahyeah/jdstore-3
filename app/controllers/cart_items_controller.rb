@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
  		p params
  		@cart = current_cart
  		@cart_item = @cart.cart_items.find_by(product_id: params[:id])
- 		if @cart_item.product.quantity >= cart_item_params[:quantity].to_i
+ 		if @cart_item.product.quantity > cart_item_params[:quantity].to_i
  			if  params[:add] == "1"
  				@cart_item.quantity +=1
  				@cart_item.save!
@@ -27,7 +27,7 @@ class CartItemsController < ApplicationController
  			redirect_to carts_path
  		end
  		redirect_to carts_path
-  end
+ 	end
 
   private
 
