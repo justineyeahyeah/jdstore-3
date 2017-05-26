@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170526002553) do
+=======
+ActiveRecord::Schema.define(version: 20170524112234) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "address_type"
+    t.string   "contact_name"
+    t.string   "cellphone"
+    t.string   "address"
+    t.string   "zipcode"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id", "address_type"], name: "index_addresses_on_user_id_and_address_type"
+  end
+>>>>>>> account
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -94,12 +110,22 @@ ActiveRecord::Schema.define(version: 20170526002553) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+<<<<<<< HEAD
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
     t.boolean  "is_admin",                         default: false
     t.string   "address"
     t.string   "name"
     t.integer  "cellphone",              limit: 8
+=======
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "is_admin",               default: false
+    t.integer  "default_address_id"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "phone_number"
+>>>>>>> account
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
