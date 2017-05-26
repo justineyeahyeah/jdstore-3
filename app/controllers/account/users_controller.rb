@@ -16,18 +16,11 @@ class Account::UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
+
   private
 
   def user_params
     params.require(:user).permit(:name, :address, :cellphone)
   end
 
-=======
-    private
-
-    def user_params
-      params.require(:user).permit(:name, :address, :phone_number)
-    end
->>>>>>> account
 end

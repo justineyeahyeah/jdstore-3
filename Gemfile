@@ -41,6 +41,11 @@ gem 'aasm'
 gem 'acts_as_list'
 gem 'jquery-turbolinks'
 gem 'annotate'
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
+gem 'intercom-rails'
 
 
 group :development, :test do
