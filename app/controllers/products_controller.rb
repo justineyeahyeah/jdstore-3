@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :validate_search_key, only: [:search]
+
   def index
     if params[:category].blank?
       @products = Product.where(:is_shelved => true).order("position ASC")
@@ -23,6 +25,29 @@ class ProductsController < ApplicationController
     end
     current_cart.add(@product, @quantity)
     redirect_to product_path(@product)
+  end
+
+
+
+  # search
+  def search
+    if @query_string.present?
+      search_result = Product.where(:is_shelved => true).ransack(@search_criteria).result(:distinct => true)
+      @products = search_result.paginate(:page => params[:page], :per_page => 5 )
+    end
+  end
+
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
   end
 
 

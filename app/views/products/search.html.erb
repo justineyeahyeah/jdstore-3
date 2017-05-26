@@ -1,0 +1,38 @@
+<div>
+  <br>
+<% if @query_string.blank? %>
+    <div class="search-info-title">
+      Sorry, The search content cannot be blank, please type some product into to search.
+    </div>
+
+  <% elsif @products.blank? %>
+    <br>
+    <h2 class="search-info-title">找不到您要找的书籍信息</h2>
+  <% else %>
+    <h2 class="search-info-title"> 有关"<%= @query_string %>"的书籍 </h2>
+    <div class="search-result">
+
+      <div class="row products-show0"></div>
+      <div class="product-table">
+        <% @products.each do |product| %>
+          <div class="row products-show">
+            <div class="col-xs-6 col-md-3">
+              <%= link_to product_path(product) do %>
+                <% if product.image.present? %>
+                  <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+                <% else %>
+                  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                <% end %>
+              <% end %>
+              <%= product.title %> ￥ <%= product.price %>
+            </div>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= will_paginate(@products, renderer: BootstrapPagination::Rails) %>
+    </div>
+  <% end %>
+</div>
