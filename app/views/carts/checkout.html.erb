@@ -47,14 +47,14 @@
         </div>
 
         <div class="form-group col-lg-6">
-          <%= f.input :billing_phone_number, placeholder: '请输入订购人电话', input_html: {value: current_user.cellphone}, :label => '电话'  %>
-        </div>
+          <%= f.input :billing_phone_number, placeholder: '请输入订购人电话', input_html: {value: current_user.cellphone}, :label => '电话'  %>        </div>
 
 
 
         <legend>收货人</legend>
 
         <div class="form-group col-lg-6">
+
           <%= f.input :shipping_name, placeholder: '请输入收货人姓名', input_html: {value: current_user.name}, :label => '姓名' %>
         </div>
 

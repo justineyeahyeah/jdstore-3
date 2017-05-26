@@ -21,5 +21,4 @@ class Account::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :address, :cellphone)
   end
-
 end
