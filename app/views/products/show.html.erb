@@ -54,4 +54,19 @@
     </p>
   </div>
 
+  <div class="row comment">
+    <div class="col-md-10 col-sm-offset-1">
+      <h3 class="comments_title">
+        <%= @product.comments.count %> Comments
+      </h3>
+      <hr>
+      <div id="comments">
+        <%= render @product.comments %>
+        <hr>
+        <%= render 'comments/form' %>
+      </div>
+    </div>
+
+  </div>
+
 </div>
