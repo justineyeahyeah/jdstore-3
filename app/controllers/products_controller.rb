@@ -20,9 +20,8 @@ class ProductsController < ApplicationController
     if @quantity > @product.quantity # 如果输入的数量大于库存
       @quantity = @product.quantity
       flash[:warning] = "您选择的商品数量超过库存，实际加入购物车的商品为#{@quantity}件。"
-    else
-      current_cart.add(@product, @quantity)
     end
+    current_cart.add(@product, @quantity)
     redirect_to product_path(@product)
   end
 
