@@ -82,7 +82,10 @@ Product.create!(title: "解忧杂货店",
         image: open("https://images-cn.ssl-images-amazon.com/images/I/51WoT34TG0L.jpg")
         )
 
+
 # Initialize category
     Category.create!(name: "youth")
 
     Category.create!(name: "history")
+
+    Category.create!(name: "cognitive science")
