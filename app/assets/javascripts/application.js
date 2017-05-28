@@ -13,13 +13,11 @@
 //= require jquery
 //= require turbolinks
 //= require jquery_ujs
-//= require bootstrap/alert
-//= require bootstrap/dropdown
-//= require bootstrap/modal
+//= require bootstrap
 //= require_tree .
 
 
-
+//商品页数量加入购物车数量增减
 $(document).on('turbolinks:load', function() {
   /*增加数量*/
   $("#quantity-plus").click(function(e) {

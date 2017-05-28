@@ -38,35 +38,37 @@
     </div>
   </div>
 
-  <div class="col-md-6">
-    <h3>书籍详情</h3>
-    <p>
-      类别：<%= @product.category.name %>
-    </p>
-    <p>
-      出版社： <%= @product.publisher %>
-    </p>
-    <p>
-      出版日期： <%= @product.publication_date %>
-    </p>
-    <p>
-      页码： <%= @product.pages %>
-    </p>
-  </div>
+    <div class="col-md-6">
+    <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#book-details">Book details</a></li>
+    <li><a data-toggle="tab" href="#comments"><%= @product.comments.count %> Comments</a></li>
+  </ul>
 
-  <div class="row comment">
-    <div class="col-md-10 col-sm-offset-1">
-      <h3 class="comments_title">
-        <%= @product.comments.count %> Comments
-      </h3>
+  <div class="tab-content">
+    <div id="book-details" class="tab-pane fade in active">
+      <h3>书籍详情</h3>
+      <p>
+        类别：<%= @product.category.name %>
+      </p>
+      <p>
+        出版社： <%= @product.publisher %>
+      </p>
+      <p>
+        出版日期： <%= @product.publication_date %>
+      </p>
+      <p>
+        页码： <%= @product.pages %>
+      </p>
+    </div>
+    <div id="comments" class="tab-pane fade">
+      <%= render @product.comments %>
       <hr>
-      <div id="comments">
-        <%= render @product.comments %>
-        <hr>
-        <%= render 'comments/form' %>
-      </div>
+      <%= render 'comments/form' %>
     </div>
 
   </div>
+
+  </div>
+
 
 </div>
