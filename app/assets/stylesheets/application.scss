@@ -29,7 +29,6 @@
      margin-bottom: 0; //底部 margin 不撑开距离
      height: 60px;
      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
  }
 
 //去掉导航栏的圆角
@@ -60,6 +59,7 @@
 font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 padding: 10px 15px; //上下10px，左右15px
 line-height: 40px; //文字行高
+font-size: 16px;
  }
 
   .navbar-default .navbar-nav > li > a:hover,
