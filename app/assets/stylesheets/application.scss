@@ -19,6 +19,8 @@
  @import "bootstrap";
  @import "font-awesome";
 
+
+
 //导航栏
 .navbar-default {
 
@@ -202,4 +204,12 @@ width: 500px;
 
 .login-help{
   font-size: 12px;
+}
+
+
+//使购物车页面居中
+div.container {
+  margin-left:auto;
+  margin-right:auto;
+  width:1024px;
 }
