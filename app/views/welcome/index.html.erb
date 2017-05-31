@@ -1,4 +1,5 @@
 <!-- ↓↓↓ 大图滚动banner 代码块↓↓↓ -->
+<!-- 需在application.js中加入"//= require bootstrap-sprockets"才能动起来 -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -61,18 +62,7 @@
 <!-- 首页精选商品列表 -->
   <div class="container all-product-box">
     <div class="row">
-
-      <div class="container topspan">
-        <div class="row">
-          <div class="col-xs-6">
-            <h3 class="titspan">商品</h3>
-          </div>
-          <div class="col-xs-6">
-            <%= link_to("more >", products_path, class: "pull-right morespan") %>
-          </div>
-        </div>
-      </div>
-
+      
       <% @products.each do |product| %>
         <div class="col-xs-6 col-md-3 text-center product-list-style">
           <% link_to product_path(product) %>
@@ -87,6 +77,10 @@
           <strong>￥ <%= link_to(product.price, product_path(product)) %></strong></p>
         </div>
       <% end %>
+
+      <div class="col-xs-6">
+        <%= link_to("more >", products_path, class: "pull-right morespan") %>
+      </div>
 
     </div>
   </div>
@@ -243,7 +237,7 @@
     <br>
     <hr>
     <div class="row">
-      <p class="text-center">Copyright ©2017 阅读原版 - Design by
+      <p class="text-center">Copyright ©2017 我的第一本原版书 - Design by
           <a href="/about/index">chensong &amp; justineyeah</a>
       </p>
     </div>
