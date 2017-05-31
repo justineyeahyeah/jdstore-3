@@ -17,6 +17,8 @@
 //= require bootstrap/dropdown
 //= require_tree .
 
+//= require bootstrap/carousel
+
 
 
 $(document).on('turbolinks:load', function() {
