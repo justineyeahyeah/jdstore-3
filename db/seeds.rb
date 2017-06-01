@@ -13,6 +13,9 @@ if User.find_by(email: "admin@test.com").nil?
   u.password = "123456"
   u.password_confirmation = "123456"
   u.is_admin = true
+  u.name = "Justine"
+  u.address = "China"
+  u.cellphone = "1234567890"
   u.save
   puts "Admin已经建好了， 账号为#{u.email}, 密码为#{u.password}"
 else

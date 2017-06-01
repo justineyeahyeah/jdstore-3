@@ -30,7 +30,7 @@
               <a href="#" class="btn btn-info" style="width: 100%;">Add More Products & Services</a>
               <hr/>
               <div class="shopping_cart">
-                <form class="form-horizontal" role="form" action="" method="post" id="payment-form">
+                 <div class="order-form">
                   <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                       <div class="panel-heading">
@@ -51,79 +51,40 @@
                               </div>
                             </div>
                             <div class="panel-body">
+                              <% current_cart.cart_items.each do |cart_item| %>
                               <div class="form-group">
                                 <div class="col-sm-3 col-xs-3">
-                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
+                                  <div class="media" style="width: 72px; height: 72px;">
+                                  <%= link_to product_path(cart_item.product) do %>
+                                    <% if cart_item.product.image.present? %>
+                                      <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>
+                                    <% else %>
+                                      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                                    <% end %>
+                                  <% end %>
+                                  </div>
                                 </div>
                                 <div class="col-sm-6 col-xs-6">
-                                  <div class="col-xs-12">Product name</div>
+                                  <div class="col-xs-12"><%= link_to(cart_item.product.title, product_path(cart_item.product)) %></div>
                                   <div class="col-xs-12">
-                                    <small>Quantity:<span>1</span>
+                                    <small>Quantity:<span><%= cart_item.quantity %></span>
                                     </small>
                                   </div>
                                 </div>
                                 <div class="col-sm-3 col-xs-3 text-right">
                                   <h6>
-                                    <span>$</span>25.00</h6>
+                                    <span>¥</span><%= cart_item.product.price %></h6>
                                 </div>
+
                               </div>
                               <div class="form-group"><hr/></div>
-                              <div class="form-group">
-                                <div class="col-sm-3 col-xs-3">
-                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                  <div class="col-xs-12">Product name</div>
-                                  <div class="col-xs-12">
-                                    <small>Quantity:<span>1</span>
-                                    </small>
-                                  </div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                  <h6>
-                                    <span>$</span>25.00</h6>
-                                </div>
-                              </div>
-                              <div class="form-group"><hr/></div>
-                              <div class="form-group">
-                                <div class="col-sm-3 col-xs-3">
-                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                  <div class="col-xs-12">Product name</div>
-                                  <div class="col-xs-12">
-                                    <small>Quantity:<span>2</span>
-                                    </small>
-                                  </div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                  <h6>
-                                    <span>$</span>50.00</h6>
-                                </div>
-                              </div>
-                              <div class="form-group"><hr/></div>
-                              <div class="form-group">
-                                <div class="col-xs-12">
-                                  <strong>Subtotal</strong>
-                                  <div class="pull-right">
-                                    <span>$</span>
-                                    <span>200.00</span>
-                                  </div>
-                                </div>
-                                <div class="col-xs-12">
-                                  <small>Shipping</small>
-                                  <div class="pull-right">
-                                    <span>-</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="form-group"><hr/></div>
+                              <% end %>
+
                               <div class="form-group">
                                 <div class="col-xs-12">
                                   <strong>Order Total</strong>
                                   <div class="pull-right">
-                                    <span>$</span>
-                                    <span>150.00</span>
+                                    <span><%= render_cart_total_price(current_cart) %> CNY</span>
                                   </div>
                                 </div>
                               </div>
@@ -147,7 +108,7 @@
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Contact and Billing Information</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Billing and Shipping Information</a>
                       </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
@@ -156,75 +117,60 @@
                         <div class="panel panel-info">
                           <div class="panel-heading">Address</div>
                           <div class="panel-body">
+                            <%= simple_form_for @order do |f| %>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <h4>Billing Address</h4>
+                              </div>
+                            </div>
+                            <div class="form-group form-address">
+                              <div class="col-md-12 ">
+                                <%= f.input :billing_name, placeholder: '请输入订购人姓名', input_html: {value: current_user.name}, :label => '姓名' %>
+                              </div>
+                            </div>
+                            <div class="form-group form-address">
+                              <div class="col-md-12">
+                                <%= f.input :billing_address, placeholder: '请输入订购人地址', input_html: {value: current_user.address}, :label => '地址' %>
+                              </div>
+                            </div>
+                            <div class="form-group form-address">
+                              <div class="col-md-12">
+                                <%= f.input :billing_phone_number, placeholder: '请输入订购人电话', input_html: {value: current_user.cellphone}, :label => '电话'  %>
+                              </div>
+                            </div>
+
                             <div class="form-group">
                               <div class="col-md-12">
                                 <h4>Shipping Address</h4>
                               </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-address">
                               <div class="col-md-12">
-                                <strong>Country:</strong>
-                              </div>
-                              <div class="col-md-12">
-                                <input type="text" class="form-control" name="country" value=""/>
+                                <%= f.input :shipping_name, placeholder: '请输入收货人姓名', input_html: {value: current_user.name}, :label => '姓名' %>
                               </div>
                             </div>
-                            <div class="form-group">
-                              <div class="col-md-6 col-xs-12">
-                                <strong>First Name:</strong>
-                                <input type="text" name="first_name" class="form-control" value=""/>
-                              </div>
-                              <div class="span1"></div>
-                              <div class="col-md-6 col-xs-12">
-                                <strong>Last Name:</strong>
-                                <input type="text" name="last_name" class="form-control" value=""/>
+                            <div class="form-group form-address">
+                              <div class="col-md-12">
+                                <%= f.input :shipping_address, placeholder: '请输入收货人地址', input_html: {value: current_user.address}, :label => '地址' %>
                               </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-address">
                               <div class="col-md-12">
-                                <strong>Address:</strong>
-                              </div>
-                              <div class="col-md-12">
-                                <input type="text" name="address" class="form-control" value=""/>
+                                <%= f.input :shipping_phone_number, placeholder: '请输入收货人电话', input_html: {value: current_user.cellphone}, :label => '电话'  %>
                               </div>
                             </div>
+
                             <div class="form-group">
-                              <div class="col-md-12">
-                                <strong>City:</strong>
-                              </div>
-                              <div class="col-md-12">
-                                <input type="text" name="city" class="form-control" value=""/>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkout" style="padding: 0 10px;">
+                                  <%= f.submit "Place Order", class: "btn btn-primary pull-left",
+                                              data: { disable_with: "Submitting..." } %>
+                                </div>
                               </div>
                             </div>
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <strong>State:</strong>
-                              </div>
-                              <div class="col-md-12">
-                                <input type="text" name="state" class="form-control" value=""/>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <strong>Zip / Postal Code:</strong>
-                              </div>
-                              <div class="col-md-12">
-                                <input type="text" name="zip_code" class="form-control" value=""/>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <strong>Phone Number:</strong>
-                              </div>
-                              <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value=""/></div>
-                            </div>
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <strong>Email Address:</strong>
-                              </div>
-                              <div class="col-md-12"><input type="text" name="email_address" class="form-control" value=""/></div>
-                            </div>
+                            <% end %>
                           </div>
+
                         </div>
                         <!--SHIPPING METHOD END-->
                       </div>
@@ -353,7 +299,7 @@
                       </div>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
