@@ -1,4 +1,19 @@
 <div class="container">
+  <div class="row" style="padding-top: 10px;">
+      <div style="display: table; margin: auto;">
+        <span class="step step_complete">
+          <a href="#" class="check-bc">Cart</a>
+          <span class="step_line step_complete"></span>
+          <span class="step_line backline"></span>
+        </span>
+        <span class="step step_complete">
+          <a href="#" class="check-bc">Checkout</a>
+          <span class="step_line "></span>
+          <span class="step_line step_complete"></span>
+        </span>
+        <span class="step_thankyou check-bc step_complete">Thank you</span>
+      </div>
+    </div>
     <div class="row">
       <% if current_cart.cart_items.present? %>
         <div class="col-sm-12 col-md-10 col-md-offset-1">
