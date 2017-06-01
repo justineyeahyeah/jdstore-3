@@ -222,84 +222,7 @@ div.container {
 html,body,.wrapper{
     background: #f7f7f7;
 }
-.steps {
-    margin-top: -41px;
-    display: inline-block;
-    float: right;
-    font-size: 16px
-}
-.step {
-    float: left;
-    background: white;
-    padding: 7px 13px;
-    border-radius: 1px;
-    text-align: center;
-    width: 100px;
-    position: relative
-}
-.step_line {
-    margin: 0;
-    width: 0;
-    height: 0;
-    border-left: 16px solid #fff;
-    border-top: 16px solid transparent;
-    border-bottom: 16px solid transparent;
-    z-index: 1008;
-    position: absolute;
-    left: 99px;
-    top: 1px
-}
-.step_line.backline {
-    border-left: 20px solid #f7f7f7;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    z-index: 1006;
-    position: absolute;
-    left: 99px;
-    top: -3px
-}
-.step_complete {
-    background: #357ebd
-}
-.step_complete a.check-bc, .step_complete a.check-bc:hover,.afix-1,.afix-1:hover{
-    color: #eee;
-}
-.step_line.step_complete {
-    background: 0;
-    border-left: 16px solid #357ebd
-}
-.step_thankyou {
-    float: left;
-    background: white;
-    padding: 7px 13px;
-    border-radius: 1px;
-    text-align: center;
-    width: 100px;
-}
-.step.check_step {
-    margin-left: 5px;
-}
-.ch_pp {
-    text-decoration: underline;
-}
-.ch_pp.sip {
-    margin-left: 10px;
-}
-.check-bc,
-.check-bc:hover {
-    color: #222;
-}
-.SuccessField {
-    border-color: #458845 !important;
-    -webkit-box-shadow: 0 0 7px #9acc9a !important;
-    -moz-box-shadow: 0 0 7px #9acc9a !important;
-    box-shadow: 0 0 7px #9acc9a !important;
-    background: #f9f9f9 url(../images/valid.png) no-repeat 98% center !important
-}
 
-.btn-xs{
-    line-height: 28px;
-}
 
 /*login form*/
 .login-container{
@@ -534,4 +457,26 @@ hr{
 
 .form-address {
   padding: 0px 10px;
+}
+
+
+//checkout steps
+.ssl-container {float:right;}
+.ssl {display:block;float:right;font-size:24px;background: #EFEFEF;padding: 14px;border-radius: 35px;}
+.ssl-text {display:block;float:right;padding:10px 10px 0 10px;color:#555;text-align:center;}
+.step {background:#eee;font-size:1em;color:#ccc;padding:15px;font-size:1.25em;}
+.step.active {color:#3C763D;}
+.step .caret {position:absolute;margin:0;color:#eee;opacity:1.0;}
+.step .caret.right {right:1px;top:0px;border-top:27px solid transparent;border-bottom:28px solid transparent;border-left:30px solid;}
+.step .caret.bottom {bottom:-15px;left:35%;border-top:15px solid;border-right:50px solid transparent;border-left:50px solid transparent;}
+@media(max-width:991px) {
+  .step {text-align:center;margin-top:20px;height:80px;}
+  .step .caret.right {top:20px;border-top:40px solid transparent;border-bottom:40px solid transparent;}
+}
+@media(max-width:767px) {
+  .step {height:auto;}
+  .ssl-container {float:none;margin:0 auto;width:220px;}
+}
+@media(min-width:768px) {
+  .step {margin-right:20px;}
 }

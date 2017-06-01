@@ -1,24 +1,54 @@
 <div class="container wrapper">
   <div class="row cart-head">
     <div class="container">
-      <div class="row">
-        <p></p>
-      </div>
-      <div class="row">
-        <div style="display: table; margin: auto;">
-          <span class="step step_complete">
-            <a href="#" class="check-bc">Cart</a>
-            <span class="step_line step_complete"></span>
-            <span class="step_line backline"></span>
-          </span>
-          <span class="step step_complete">
-            <a href="#" class="check-bc">Checkout</a>
-            <span class="step_line "></span>
-            <span class="step_line step_complete"></span>
-          </span>
-          <span class="step_thankyou check-bc step_complete">Thank you</span>
+      <!--- Checkout Steps -->
+      <div class="container">
+    <br />
+    <div class="row">
+
+        <div class="ssl-container col-xs-12 col-sm-4 col-lg-3">
+            <span class="ssl glyphicon glyphicon-lock"></span>
+            <span class="ssl-text">
+                256 Bit SSL<br />
+                Encryption
+            </span>
+            <div class="clearfix"></div>
         </div>
-      </div>
+
+        <div class="col-xs-12 col-sm-8 col-lg-9">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="step active">
+                        <span class="glyphicon glyphicon-home"></span>
+                        Adresse
+                        <div class="hidden-xs caret right"></div>
+                        <div class="visible-xs caret bottom"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <div class="step">
+                            <span class="glyphicon glyphicon-usd"></span>
+                            Payment
+                            <div class="hidden-xs caret right"></div>
+                        <div class="visible-xs caret bottom"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4">
+                    <div class="step">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Thank you
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="col-xs-12" />
+    </div>
+</div>
+<!--- End checkout Steps -->
+
       <div class='row' style='padding-top:25px; padding-bottom:25px;'>
         <div class='col-md-12'>
           <div id='mainContentWrapper'>
@@ -27,7 +57,9 @@
                 Review Your Order & Complete Checkout
               </h2>
               <hr/>
-              <a href="#" class="btn btn-info" style="width: 100%;">Add More Products & Services</a>
+              <div class="shopping">
+                <%= link_to("Add More Products & Services", products_path, class: "btn btn-info", style: "width: 100%; color: #FFFFFF;") %>
+              </div>
               <hr/>
               <div class="shopping_cart">
                  <div class="order-form">
@@ -46,7 +78,7 @@
                               Review Order
                               <div class="pull-right">
                                 <small>
-                                  <a class="afix-1" href="#">Edit Cart</a>
+                                  <%= link_to("Edit Cart", carts_path, style: "color: #FFFFFF;text-decoration:none;") %>
                                 </small>
                               </div>
                             </div>
@@ -100,7 +132,7 @@
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <div style="text-align: center; width:100%;">
-                          <a style="width:100%;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class=" btn btn-success" onclick="$(this).fadeOut(); $('#payInfo').fadeIn();">Continue to Billing Information»</a>
+                          <a style="width:100%;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class=" btn btn-success" onclick="$(this).fadeOut(); $('#payInfo').fadeIn();">Continue to Billing & Shipping Information»</a>
                         </div>
                       </h4>
                     </div>
