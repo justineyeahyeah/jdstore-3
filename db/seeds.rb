@@ -44,43 +44,112 @@ end
 
 # Initialize Product method2
 
-Product.create!(title: "我们仨",
-    author: "杨绛",
-    description: "《我们仨》是一个寻寻觅觅的万里长梦，一个单纯温馨的学者家庭，相守相助，相聚相失！",
-    publisher: "生活•读书•新知三联书店",
-    publication_date: "2012-09-01",
-    pages: 165,
-    price: 15,
+Product.create!(title: "Oh, The Places You'll Go!",
+    author: " Dr. Seuss ",
+    description: "Dr. Seuss’s wonderfully wise Oh, the Places You’ll Go! is the perfect send-off for grads—from nursery school, high school, college, and beyond! From soaring to high heights and seeing great sights to being left in a Lurch on a prickle-ly perch, Dr. Seuss addresses life’s ups and downs with his trademark humorous verse and illustrations, while encouraging readers to find the success that lies within. In a starred review, Booklist notes, “Seuss’s message is simple but never sappy: life may be a ‘Great Balancing Act,’ but through it all ‘There’s fun to be done.’” A perennial favorite and a perfect gift for anyone starting a new phase in their life!",
+    publisher: "Random House ",
+    publication_date: "January 22, 1990",
+    pages: 56,
+    price: 10,
     quantity: 5,
     is_shelved: true,
     category_id: 1,
-    image: open("https://images-cn.ssl-images-amazon.com/images/I/41pi7pBzTcL._SX348_BO1,204,203,200_.jpg")
+    image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fg4yw93bydj30a10dvq3y.jpg")
     )
 
-Product.create!(title: "解忧杂货店",
-    author: "东野圭吾",
-    description: "不是推理小说，却更扣人心弦，获第7届中央公论文艺奖，中文版销量突破200万册，现代人内心流失的东西，这家杂货店能帮你找回",
-    publisher: "南海出版公司",
-    publication_date: "2014-09-01",
-    pages: 297,
-    price: 28,
+Product.create!(title: "Harry Potter and the Cursed Child, Parts 1 & 2, Special Rehearsal Edition Script",
+    author: "J.K. Rowling & Jack Thorne",
+    description: "The Eighth Story. Nineteen Years Later.
+
+    Based on an original new story by J.K. Rowling, Jack Thorne and John Tiffany, a new play by Jack Thorne, Harry Potter and the Cursed Child is the eighth story in the Harry Potter series and the first official Harry Potter story to be presented on stage. The play will receive its world premiere in London’s West End on July 30, 2016. ",
+    publisher: "Arthur A. Levine Books; Special Rehearsal Script ed. edition",
+    publication_date: "Jul 31, 2016",
+    pages: 320,
+    price: 14.99,
     quantity: 10,
     is_shelved: true,
     category_id: 1,
-    image: open("https://images-cn.ssl-images-amazon.com/images/I/51F6FK4cLGL.jpg")
+    image: open("http://ww3.sinaimg.cn/large/006tNc79gy1fg4z3eh1zej30970dvwfs.jpg")
     )
 
-    Product.create!(title: "白鹿原",
-        author: "陈忠实",
-        description: "茅盾文学奖获奖作品；插图珍藏精装本",
-        publisher: "人民文学出版社",
-        publication_date: "2014-10-01",
-        pages: 697,
-        price: 24,
-        quantity: 10,
-        category_id: 1,
-        image: open("https://images-cn.ssl-images-amazon.com/images/I/51WoT34TG0L.jpg")
-        )
+    Product.create!(title: "The Hobbit",
+    author: "J. R. R. Tolkien",
+    description: "A great modern classic and the prelude to The Lord of the Rings.
+
+    Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to whisk him away on an adventure. They have launched a plot to raid the treasure hoard guarded by Smaug the Magnificent, a large and very dangerous dragon. Bilbo reluctantly joins their quest, unaware that on his journey to the Lonely Mountain he will encounter both a magic ring and a frightening creature known as Gollum.",
+    publisher: "Houghton Mifflin Harcourt ",
+    publication_date: "September 18, 2012",
+    pages: 300,
+    price: 16.99,
+    quantity: 10,
+    category_id: 1,
+    image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg4z68dy9pj30990dwgm7.jpg")
+    )
+
+Product.create!(title: "Artemis Fowl: The Opal Deception (Book 4)",
+    author: "Eoin Colfer",
+    description: "The evil pixie Opal Koboi has spent the last year in a self-induced coma, plotting her revenge on all those who foiled her attempt to destroy the LEPrecon fairy police. And Artemis Fowl is at the top of her list. ",
+    publisher: "Disney-Hyperion; Reprint edition",
+    publication_date: "July 14, 2009",
+    pages: 368,
+    price: 9.99,
+    quantity: 6.99,
+    is_shelved: true,
+    category_id: 1,
+    image: open("http://ww4.sinaimg.cn/large/006tNc79gy1fg4zdxty6yj317e1rs7dl.jpg")
+    )
+
+Product.create!(title: "Principles: Life and Work",
+    author: "Ray Dalio",
+    description: "Ray Dalio, one of the world’s most successful investors and entrepreneurs, shares the unconventional principles that he’s developed, refined, and used over the past forty years to create unique results in both life and business—and which any person or organization can adopt to help achieve their goals.",
+    publisher: "Simon & Schuster",
+    publication_date: "September 19, 2017",
+    pages: 320,
+    price: 14.99,
+    quantity: 99,
+    is_shelved: true,
+    category_id: 1,
+    image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg4zvsdudnj312v1lrjsx.jpg")
+    )
+
+Product.create!(title: "The Leadership Pipeline: How to Build the Leadership Powered Company",
+    author: " Ram Charan",
+    description: "An updated and revised version of the bestselling The Leadership Pipeline – the critical resource for how companies can grow leaders from the inside.",
+    publisher: "Jossey-Bass; 2 edition",
+    publication_date: "January 11, 2011",
+    pages: 352,
+    price: 15.99,
+    quantity: 99,
+    is_shelved: true,
+    category_id: 1,
+    image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fg50cjfntaj309h0dv0tf.jpg")
+    )
+
+Product.create!(title: "Guns, Germs, and Steel: The Fates of Human Societies 1st Edition",
+    author: "Jared M. Diamond ",
+    description: "In this <artful, informative, and delightful> (William H. McNeill, New York Review of Books) book, Jared Diamond convincingly argues that geographical and environmental factors shaped the modern world. Societies that had had a head start in food production advanced beyond the hunter-gatherer stage, and then developed religion --as well as nasty germs and potent weapons of war --and adventured on sea and land to conquer and decimate preliterate cultures. A major advance in our understanding of human societies, Guns, Germs, and Steel chronicles the way that the modern world came to be and stunningly dismantles racially based theories of human history. Winner of the Pulitzer Prize, the Phi Beta Kappa Award in Science, the Rhone-Poulenc Prize, and the Commonwealth club of California's Gold Medal.",
+    publisher: "W. W. Norton & Company; 1st edition",
+    publication_date: "April 1, 1999",
+    pages: 480,
+    price: 9.99,
+    quantity: 99,
+    is_shelved: true,
+    category_id: 1,
+    image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg50mtvav6j30940dvaaw.jpg")
+    )
+
+Product.create!(title: "The Black Swan",
+    author: "Nassim Nicholas Taleb",
+    description: "A black swan is an event, positive or negative, that is deemed improbable yet causes massive consequences. In this groundbreaking and prophetic book, Taleb shows in a playful way that Black Swan events explain almost everything about our world, and yet we—especially the experts—are blind to them.",
+    publisher: "Random House Trade Paperbacks; 2 edition",
+    publication_date: "May 11, 2010",
+    pages: 444,
+    price: 10.99,
+    quantity: 99,
+    is_shelved: true,
+    category_id: 1,
+    image: open("http://ww3.sinaimg.cn/large/006tNc79gy1fg50r45ysdj30900dvgm5.jpg")
+    )
 
 
 # Initialize category
