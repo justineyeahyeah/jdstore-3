@@ -35,12 +35,22 @@
                 </div>
               </div>
 
+
+              <% if @order.order_placed? %>
               <div class="col-xs-12 col-sm-4">
                 <div class="step">
                   <span class="glyphicon glyphicon-ok"></span>
                   Thank you
                 </div>
               </div>
+              <% else %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="step active">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  Thank you
+                </div>
+              </div>
+              <% end %>
             </div>
           </div>
           <hr class="col-xs-12"/>
@@ -114,21 +124,12 @@
                   </tbody>
                 </table>
 
-
-
-                <div class="form-group">
-                  <% if !@order.is_paid? %>
-                    <div class="col-md-12">
-                        <ul class="cards pull-right">
-                            <li class="visa hand">Visa</li>
-                            <li class="mastercard hand">MasterCard</li>
-                            <li class="amex hand">Amex</li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <% end %>
-              </div>
-
+                <% if !@order.is_paid? %>
+                  <div class="group pull-right">
+                    <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+                    <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+                  </div>
+                <% end %>
 
 
         </div>
