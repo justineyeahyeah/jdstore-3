@@ -98,7 +98,7 @@ Product.create!(title: "Artemis Fowl: The Opal Deception (Book 4)",
     price: 9.99,
     quantity: 6.99,
     is_shelved: true,
-    category_id: 1,
+    category_id: 2,
     image: open("http://ww4.sinaimg.cn/large/006tNc79gy1fg4zdxty6yj317e1rs7dl.jpg")
     )
 
@@ -111,7 +111,7 @@ Product.create!(title: "Principles: Life and Work",
     price: 14.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 1,
+    category_id: 2,
     image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg4zvsdudnj312v1lrjsx.jpg")
     )
 
@@ -124,7 +124,7 @@ Product.create!(title: "The Leadership Pipeline: How to Build the Leadership Pow
     price: 15.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 1,
+    category_id: 2,
     image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fg50cjfntaj309h0dv0tf.jpg")
     )
 
@@ -137,7 +137,7 @@ Product.create!(title: "Guns, Germs, and Steel: The Fates of Human Societies 1st
     price: 9.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 1,
+    category_id: 3,
     image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg50mtvav6j30940dvaaw.jpg")
     )
 
@@ -150,7 +150,7 @@ Product.create!(title: "The Black Swan",
     price: 10.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 1,
+    category_id: 3,
     image: open("http://ww3.sinaimg.cn/large/006tNc79gy1fg50r45ysdj30900dvgm5.jpg")
     )
 
