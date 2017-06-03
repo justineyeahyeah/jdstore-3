@@ -48,6 +48,7 @@ gem 'seo_helper'
 gem 'intercom-rails'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
+gem 'figaro'
 
 
 group :development, :test do
