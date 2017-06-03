@@ -1,78 +1,359 @@
-<div class="row">
-
-<div class="col-md-12">
-  <h2>购物明细</h2>
-
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th width="80%">商品明细</th>
-          <th>单价</th>
-          <th>数量</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_cart.cart_items.each do |cart_item| %>
-          <tr>
-            <td> <%= link_to(cart_item.product.title, product_path(cart_item.product)) %> </td>
-            <td> <%= cart_item.product.price %> </td>
-            <td> <%= cart_item.quantity %> </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <div class="total clearfix">
-      <span class="pull-right">
-        总计 <%= render_cart_total_price(current_cart) %> CNY
-      </span>
-    </div>
-
-    <hr>
-
-    <h2>订单资讯</h2>
-
-    <div class="order-form">
-
-      <%= simple_form_for @order do |f| %>
-
-        <legend>订购人</legend>
-
-        <div class="form-group col-lg-6">
-          <%= f.input :billing_name, placeholder: '请输入订购人姓名', input_html: {value: current_user.name}, :label => '姓名' %>
+<div class="container wrapper">
+  <div class="row cart-head">
+    <div class="container">
+      <div class="row">
+        <p></p>
+      </div>
+      <div class="row">
+        <div style="display: table; margin: auto;">
+          <span class="step step_complete">
+            <a href="#" class="check-bc">Cart</a>
+            <span class="step_line step_complete"></span>
+            <span class="step_line backline"></span>
+          </span>
+          <span class="step step_complete">
+            <a href="#" class="check-bc">Checkout</a>
+            <span class="step_line "></span>
+            <span class="step_line step_complete"></span>
+          </span>
+          <span class="step_thankyou check-bc step_complete">Thank you</span>
         </div>
+      </div>
+      <div class='row' style='padding-top:25px; padding-bottom:25px;'>
+        <div class='col-md-12'>
+          <div id='mainContentWrapper'>
+            <div class="col-md-8 col-md-offset-2">
+              <h2 style="text-align: center;">
+                Review Your Order & Complete Checkout
+              </h2>
+              <hr/>
+              <a href="#" class="btn btn-info" style="width: 100%;">Add More Products & Services</a>
+              <hr/>
+              <div class="shopping_cart">
+                <form class="form-horizontal" role="form" action="" method="post" id="payment-form">
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Review Your Order</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                          <!--REVIEW ORDER-->
+                          <div class="panel panel-info">
+                            <div class="panel-heading">
+                              Review Order
+                              <div class="pull-right">
+                                <small>
+                                  <a class="afix-1" href="#">Edit Cart</a>
+                                </small>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                  <div class="col-xs-12">Product name</div>
+                                  <div class="col-xs-12">
+                                    <small>Quantity:<span>1</span>
+                                    </small>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                  <h6>
+                                    <span>$</span>25.00</h6>
+                                </div>
+                              </div>
+                              <div class="form-group"><hr/></div>
+                              <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                  <div class="col-xs-12">Product name</div>
+                                  <div class="col-xs-12">
+                                    <small>Quantity:<span>1</span>
+                                    </small>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                  <h6>
+                                    <span>$</span>25.00</h6>
+                                </div>
+                              </div>
+                              <div class="form-group"><hr/></div>
+                              <div class="form-group">
+                                <div class="col-sm-3 col-xs-3">
+                                  <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"/>
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                  <div class="col-xs-12">Product name</div>
+                                  <div class="col-xs-12">
+                                    <small>Quantity:<span>2</span>
+                                    </small>
+                                  </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-3 text-right">
+                                  <h6>
+                                    <span>$</span>50.00</h6>
+                                </div>
+                              </div>
+                              <div class="form-group"><hr/></div>
+                              <div class="form-group">
+                                <div class="col-xs-12">
+                                  <strong>Subtotal</strong>
+                                  <div class="pull-right">
+                                    <span>$</span>
+                                    <span>200.00</span>
+                                  </div>
+                                </div>
+                                <div class="col-xs-12">
+                                  <small>Shipping</small>
+                                  <div class="pull-right">
+                                    <span>-</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group"><hr/></div>
+                              <div class="form-group">
+                                <div class="col-xs-12">
+                                  <strong>Order Total</strong>
+                                  <div class="pull-right">
+                                    <span>$</span>
+                                    <span>150.00</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- REVIEW ORDER END -->
+                        </div>
+                      </div>
 
-        <div class="form-group col-lg-6">
-          <%= f.input :billing_address, placeholder: '请输入订购人地址', input_html: {value: current_user.address}, :label => '地址' %>
-        </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <div style="text-align: center; width:100%;">
+                          <a style="width:100%;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class=" btn btn-success" onclick="$(this).fadeOut(); $('#payInfo').fadeIn();">Continue to Billing Information»</a>
+                        </div>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Contact and Billing Information</a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <!--SHIPPING METHOD-->
+                        <div class="panel panel-info">
+                          <div class="panel-heading">Address</div>
+                          <div class="panel-body">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <h4>Shipping Address</h4>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Country:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <input type="text" class="form-control" name="country" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-6 col-xs-12">
+                                <strong>First Name:</strong>
+                                <input type="text" name="first_name" class="form-control" value=""/>
+                              </div>
+                              <div class="span1"></div>
+                              <div class="col-md-6 col-xs-12">
+                                <strong>Last Name:</strong>
+                                <input type="text" name="last_name" class="form-control" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Address:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <input type="text" name="address" class="form-control" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>City:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <input type="text" name="city" class="form-control" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>State:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <input type="text" name="state" class="form-control" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Zip / Postal Code:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <input type="text" name="zip_code" class="form-control" value=""/>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Phone Number:</strong>
+                              </div>
+                              <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value=""/></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Email Address:</strong>
+                              </div>
+                              <div class="col-md-12"><input type="text" name="email_address" class="form-control" value=""/></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--SHIPPING METHOD END-->
+                      </div>
+                    </div>
+                  </div>
 
-        <div class="form-group col-lg-6">
-          <%= f.input :billing_phone_number, placeholder: '请输入订购人电话', input_html: {value: current_user.cellphone}, :label => '电话'  %>
-        </div>
-
-
-
-        <legend>收货人</legend>
-
-        <div class="form-group col-lg-6">
-          <%= f.input :shipping_name, placeholder: '请输入收货人姓名', input_html: {value: current_user.name}, :label => '姓名' %>
-        </div>
-
-        <div class="form-group col-lg-6">
-          <%= f.input :shipping_address, placeholder: '请输入收货人地址', input_html: {value: current_user.address}, :label => '地址'  %>
-        </div>
-
-        <div class="form-group col-lg-6">
-          <%= f.input :shipping_phone_number, placeholder: '请输入收货人电话', input_html: {value: current_user.cellphone}, :label => '电话' %>
-        </div>
-
-        <div class="checkout">
-          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
-                      data: { disable_with: "Submitting..." } %>
-        </div>
-      <% end %>
-
-    </div>
-
-  </div>
-</div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <div style="text-align: center;">
+                          <a
+                            data-toggle="collapse"
+                            data-parent="#accordion"
+                            href="#collapseThree"
+                            class=" btn   btn-success"
+                            id="payInfo"
+                            style="width:100%;display: none;"
+                            onclick="$(this).fadeOut();
+                     document.getElementById('collapseThree').scrollIntoView()">Enter Payment Information »</a>
+                        </div>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                          <b>Payment Information</b>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <!--CREDIT CART PAYMENT-->
+                        <div class="panel panel-info">
+                          <div class="panel-heading">
+                            <span>
+                              <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            Secure Payment</div>
+                          <div class="panel-body">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Card Type:</strong>
+                              </div>
+                              <div class="col-md-12">
+                                <select id="CreditCardType" name="CreditCardType" class="form-control">
+                                  <option value="5">Visa</option>
+                                  <option value="6">MasterCard</option>
+                                  <option value="7">American Express</option>
+                                  <option value="8">Discover</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Credit Card Number:</strong>
+                              </div>
+                              <div class="col-md-12"><input type="text" class="form-control" name="car_number" value=""/></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Card CVV:</strong>
+                              </div>
+                              <div class="col-md-12"><input type="text" class="form-control" name="car_code" value=""/></div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <strong>Expiration Date</strong>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" name="">
+                                  <option value="">Month</option>
+                                  <option value="01">01</option>
+                                  <option value="02">02</option>
+                                  <option value="03">03</option>
+                                  <option value="04">04</option>
+                                  <option value="05">05</option>
+                                  <option value="06">06</option>
+                                  <option value="07">07</option>
+                                  <option value="08">08</option>
+                                  <option value="09">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                </select>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control" name="">
+                                  <option value="">Year</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <span>Pay secure using your credit card.</span>
+                              </div>
+                              <div class="col-md-12">
+                                <ul class="cards">
+                                  <li class="visa hand">Visa</li>
+                                  <li class="mastercard hand">MasterCard</li>
+                                  <li class="amex hand">Amex</li>
+                                </ul>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <button type="submit" class="btn btn-primary btn-submit-fix">Place Order</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--CREDIT CART PAYMENT END-->
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>

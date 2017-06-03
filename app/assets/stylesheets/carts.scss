@@ -1,3 +1,14 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//购物车数量居中
+.cart-quantity .quantity-select {
+  display: inline;
+  float: left;
+}
+
+.cart-quantity .quantity-submit {
+  display: inline;
+  float: right;
+}

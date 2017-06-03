@@ -88,4 +88,8 @@ Product.create!(title: "解忧杂货店",
 
     Category.create!(name: "history")
 
+<<<<<<< HEAD
     
+=======
+    Category.create!(name: "cognitive science")
+>>>>>>> a7211d22243a3a1e21ef70c1db86e5775a540c4c

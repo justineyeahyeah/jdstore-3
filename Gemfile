@@ -41,7 +41,16 @@ gem 'aasm'
 gem 'acts_as_list'
 gem 'jquery-turbolinks'
 gem 'annotate'
+<<<<<<< HEAD
 gem 'will_paginate'
+=======
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
+gem 'intercom-rails'
+
+>>>>>>> a7211d22243a3a1e21ef70c1db86e5775a540c4c
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

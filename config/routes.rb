@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :categories
-  devise_for :users
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords",
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "welcome#index"
 
@@ -8,6 +12,10 @@ Rails.application.routes.draw do
     member do
       post :add_to_cart
     end
+    collection do
+      get :search
+    end
+    resources :comments
   end
 
   resources :carts do
