@@ -33,7 +33,7 @@
                         <%= f.input_field "", name: "quantity", value: '1', id: "quantity-input", class: "quantity-input" %>
                         <%= link_to("+", "", id: "quantity-plus", class: "quantity-plus btn btn-default #{@product.quantity <= 1 ? 'disabled' : ''}") %>
                         </div>
-                        <button type="submit" class="btn btn-success <%= @product.quantity == 0 ? 'disabled' : '' %>">
+                        <button type="submit" class="btn btn-success <%= @product.quantity == 0 ? 'disabled' : '' %>" id="cart-btn">
                         <%= fa_icon("cart-arrow-down", text: "Add to cart") %>
                         </button>
                         <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Add to wish list </a></h6>

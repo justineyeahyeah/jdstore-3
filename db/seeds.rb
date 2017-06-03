@@ -156,8 +156,8 @@ Product.create!(title: "The Black Swan",
 
 
 # Initialize category
-    Category.create!(name: "youth")
+    Category.create!(name: "Youth")
 
-    Category.create!(name: "history")
+    Category.create!(name: "History")
 
-    Category.create!(name: "cognitive science")
+    Category.create!(name: "Cognitive Science")

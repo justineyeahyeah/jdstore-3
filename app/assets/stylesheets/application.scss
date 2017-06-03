@@ -357,6 +357,57 @@ hr{
 .product-title {
   width: 180px;
   margin: 5px 30px;
-  
 
+
+}
+
+
+//替换按钮颜色/按钮字体颜色
+.btn-danger {
+     color: #fff;//字体颜色
+ }
+
+ .btn-success {
+      color: #fff;//字体颜色
+  }
+
+  .btn-info {
+       color: #fff;//字体颜色
+   }
+
+.btn-primary {
+        color: #fff;//字体颜色
+    }
+
+// user dropdown
+.dropdown-menu>li>a {
+    color:#428bca;
+    width: 100%;
+    margin-right: 5px;
+}
+.dropdown ul.dropdown-menu {
+    border-radius:4px;
+    box-shadow:none;
+    margin-top:5px;
+    width:250px;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
 }
