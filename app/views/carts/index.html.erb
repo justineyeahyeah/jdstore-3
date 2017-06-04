@@ -1,76 +1,102 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="container">
 
-    <%= link_to("清空购物车", clean_carts_path,
-                method: :delete, class: "pull-right",
-                style: "text-decoration: underline;",
-                data: { confirm: "你确定要清空整个购物车吗？"} ) %>
+    <div class="row">
+      <% if current_cart.cart_items.present? %>
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
 
-    <h2>购物车</h2>
+        <div class="delete-cart">
+        <%= link_to("清空购物车", clean_carts_path,
+                    method: :delete, class: "btn btn-sm btn-warning pull-right", style: "color: #FFFFFF;margin-top: 15px;",
+                    data: { confirm: "你确定要清空整个购物车吗？"} ) %>
+          </div>
+        <h2>购物车</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th  class="text-center">Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% current_cart.cart_items.each do |cart_item| %>
+                    <tr>
+                        <td class="col-sm-1 col-md-1">
+                        <div class="media" style="width: 72px; height: 72px;">
+                        <%= link_to product_path(cart_item.product) do %>
+                          <% if cart_item.product.image.present? %>
+                            <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>
+                          <% else %>
+                            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                          <% end %>
+                        <% end %>
+                        </div>
+                      </td>
+                      <td class="col-sm-7 col-md-5">
+                        <div class="media-body" style="padding-top: 5px;">
+                            <h4 class="media-heading"><%= link_to(cart_item.product.title, product_path(cart_item.product)) %></h4>
+                            <h5 class="media-heading"> by <a href="#"><%= cart_item.product.author %></a></h5>
+                            <span>Edition: </span><span class="text-success"><strong>Kindle</strong></span>
+                        </div>
+                      </td>
 
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">商品资讯</th>
-          <th>单价</th>
-          <th>数量</th>
-          <th>操作选项</th>
-        </tr>
-      </thead>
+                        <td class="col-sm-2 col-md-2">
+                          <div class="cart-quantity" style: "width: 120px; margin-left: auto; margin-right: auto;">
+                            <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
+                                <%= f.select :quantity, 1..cart_item.product.quantity, class: "quantity-select"  %>
+                                <%= f.submit "更新", data: { disable_with: "Submitting..." }, class: "quantity-submit"  %>
+                            <% end %>
+                          </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center" style="padding-top: 15px;"><strong><%= cart_item.product.price %></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center" style="padding-top: 15px;"><strong><%= cart_item.product.price * cart_item.quantity %></strong></td>
+                        <td class="col-sm-1 col-md-1" style="padding-top: 15px;">
+                          <div class="delete-btn">
+                            <%= link_to("Remove", cart_item_path(cart_item.product_id), method: :delete, class: "btn btn-sm btn-danger pull-right", style: "color: #FFFFFF;") %>
+                          </div>
+                      </td>
+                    </tr>
+                    <% end %>
 
-      <tbody>
-        <% current_cart.cart_items.each do |cart_item| %>
-          <tr>
-            <td>
-              <%= link_to product_path(cart_item.product) do %>
-                <% if cart_item.product.image.present? %>
-                  <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>
-                <% else %>
-                  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-                <% end %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
-            </td>
-            <td>
-              <%= cart_item.product.price %>
-            </td>
-            <td>
-              <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
-                <%= f.select :quantity, 1..cart_item.product.quantity %>
-                <%= f.submit "更新", data: { disable_with: "Submitting..." } %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to cart_item_path(cart_item.product_id), method: :delete do %>
-                <i class="fa fa-trash"></i>
-              <% end %>
-            </td>
-          </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-center" style="padding-top: 22px;"><h4><strong>¥ <%= current_cart.total_price %></strong></h4></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                          <div class="continue-shopping">
+                            <%= link_to("Continue Shopping", products_path, class: "btn btn-sm btn-default pull-right", style: "color: #141313;") %>
+                          </div>
+                      </td>
+                        <td>
+                          <div class="checkout clearfix">
+                            <%= link_to("Checkout", checkout_carts_path, method: :post, class: "btn btn-sm btn-success pull-right", style: "color: #FFFFFF;") %>
+                          </div>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <% else %>
+        <div class="row container empty-cart text-center" style="padding-top: 200px;">
+          <h4>There are currently no items in your shopping cart.</h4>
+          <div class="continue-shopping">
+            <%= link_to("Continue Shopping", products_path, class: "btn btn-sm btn-default", style: "color: ##141313;") %>
+          </div>
+        </div>
+
         <% end %>
 
-      </tbody>
-    </table>
-
-    <br>
-
-    <div class="total clearfix">
-      <span class="pull-right">
-        <span>
-          总计 <%= render_cart_total_price(current_cart) %> RMB
-        </span>
-      </span>
     </div>
-
-    <hr>
-
-    <div class="checkout clearfix">
-      <%= link_to("确认结账", checkout_carts_path, method: :post, class: "btn btn-lg btn-danger pull-right") %>
-    </div>
-  </div>
 </div>
-
-
-
-    </table>

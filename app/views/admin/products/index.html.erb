@@ -1,12 +1,12 @@
 <h2> Product List </h2>
 <div class="pull-right" style="padding-bottom: 20px;">
-  <%= link_to("新增产品", new_admin_product_path, class: "btn btn-primary btn-sm") %>
+  <%= link_to("新增产品", new_admin_product_path, class: "btn btn-primary btn-sm", style:"color: #fff;") %>
 </div>
-<table class="table table-bordered">
+<table class="table table-bordered table-striped custab">
   <thead>
     <tr>
       <th>#</th>
-      <th width="220">Product Pic</th>
+      <th width="125">Product Pic</th>
       <th>Name</th>
       <th>Price</th>
       <th width="200"> Options</th>
@@ -34,15 +34,15 @@
           <%= product.price %>
         </td>
         <td>
-          <%= link_to("Edit", edit_admin_product_path(product)) %>
-          <%= link_to("上移", move_up_admin_product_path(product), method: :post) %>
-          <%= link_to("下移", move_down_admin_product_path(product), method: :post) %>
+          <%= link_to edit_admin_product_path(product), class: "btn btn-xs btn-success", style:"color: #fff;" do %><i class="fa fa-pencil"></i><% end %>
+          <!-- <%= link_to("上移", move_up_admin_product_path(product), method: :post) %> -->
+          <!-- <%= link_to("下移", move_down_admin_product_path(product), method: :post) %> -->
           <% if product.is_shelved? %>
-            <%= link_to("下架", off_shelve_admin_product_path(product),method: :post, class: "btn btn-xs btn-default" ) %>
+            <%= link_to off_shelve_admin_product_path(product),method: :post, class: "btn btn-xs btn-danger", style:"color: #fff;" do %><i class="fa fa-arrow-circle-down"></i><% end %>
           <% else %>
-            <%= link_to("上架", shelve_admin_product_path(product),method: :post, class: "btn btn-xs btn-default" ) %>
+            <%= link_to shelve_admin_product_path(product),method: :post, class: "btn btn-xs btn-danger", style:"color: #fff;" do %><i class="fa fa-arrow-circle-up"></i><% end %>
           <% end %>
-          <%= link_to("删除", admin_product_path(product), method: :delete) %>
+          <%= link_to admin_product_path(product), method: :delete, class: "btn btn-xs btn-info", style:"color: #fff;" do %><i class="fa fa-trash"></i><% end %>
         </td>
       </tr>
     <% end %>

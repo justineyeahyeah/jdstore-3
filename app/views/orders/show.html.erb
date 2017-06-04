@@ -1,71 +1,144 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="container wrapper">
+  <div class="order page">
+    <div class="container">
+      <!--- Checkout Steps -->
+      <div class="container">
+        <br/>
+        <div class="row">
 
-    <h2>订单明细 (<%= render 'orders/assm_state' %>) </h2>
+          <div class="ssl-container col-xs-12 col-sm-4 col-lg-3">
+            <span class="ssl glyphicon glyphicon-lock"></span>
+            <span class="ssl-text">
+              256 Bit SSL<br/>
+              Encryption
+            </span>
+            <div class="clearfix"></div>
+          </div>
 
-    <%= render "orders/state_option", order: @order %>
+          <div class="col-xs-12 col-sm-8 col-lg-9">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4">
+                <div class="step active">
+                  <span class="glyphicon glyphicon-home"></span>
+                  Adresse
+                  <div class="hidden-xs caret right"></div>
+                  <div class="visible-xs caret bottom"></div>
+                </div>
+              </div>
 
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th width="70%">商品明细</th>
-          <th>单价</th>
-          <th>数量</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @product_lists.each do |product_list| %>
-          <tr>
-            <td><%= product_list.product_name %></td>
-            <td><%= product_list.product_price %></td>
-            <td><%= product_list.quantity %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <div class="total clearfix">
-      <span class="pull-right">
-        总计 <%= @order.total %> CNY
-      </span>
-    </div>
-
-    <hr>
-
-    <h2>寄送资讯</h2>
-
-    <table class="table table-striped table-bordered">
-      <tbody>
-
-        <tr>
-          <td>订购人</td>
-        </tr>
-        <tr>
-          <td>
-            <%= @order.billing_name %> - <%= @order.billing_address %> - <%= @order.billing_phone_number %>
-          </td>
-        </tr>
-        <tr>
-          <td>收件人</td>
-        </tr>
-        <tr>
-          <td>
-            <%= @order.shipping_name %> - <%= @order.shipping_address %> - <%= @order.shipping_phone_number %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <div class="col-xs-12 col-sm-4">
+                <div class="step active">
+                  <span class="glyphicon glyphicon-usd"></span>
+                  Payment
+                  <div class="hidden-xs caret right"></div>
+                  <div class="visible-xs caret bottom"></div>
+                </div>
+              </div>
 
 
-    <% if !@order.is_paid? %>
-      <div class="group pull-right">
-        <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-        <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+              <% if @order.order_placed? %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="step">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  Thank you
+                </div>
+              </div>
+              <% else %>
+              <div class="col-xs-12 col-sm-4">
+                <div class="step active">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  Thank you
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <hr class="col-xs-12"/>
+        </div>
       </div>
-    <% end %>
+      <!--- End checkout Steps -->
+
+      <!--REVIEW ORDER-->
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          Review Order (<%= render 'orders/assm_state' %>)
+        </div>
+        <div class="panel-body">
+
+          <table class="table table-striped table-hover">
+              <thead>
+                  <tr>
+                      <th>Product</th>
+                      <th  class="text-center">Quantity</th>
+                      <th class="text-center">Price</th>
+                      <th class="text-center">Total</th>
+                      <th> </th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% @product_lists.each do |product_list| %>
+                  <tr>
+                    <td class="col-sm-3 col-xs-3">
+                      <%= product_list.product_name %>
+                    </td>
+                    <td class="col-sm-3 col-xs-3 text-center">
+                      <%= product_list.product_price %>
+                    </td>
+                    <td class="col-sm-3 col-xs-3 text-center">
+                      <%= product_list.quantity %>
+                    </td>
+                    <td class="col-sm-3 col-xs-3 text-center">
+                      <%= product_list.product_price * product_list.quantity %>
+                    </td>
+                  </tr>
+                  <% end %>
+
+                  <tr>
+                      <td>   </td>
+                      <td>   </td>
+                      <td><h4 class="pull-right"><strong>Total</strong></h4></td>
+                      <td class="text-center"><h4><strong>¥ <%= @order.total %></strong></h4></td>
+                  </tr>
+                </tbody>
+              </table>
+
+                <table class="table table-striped table-hover">
+                  <tbody>
+
+                    <tr>
+                      <td><strong>Billing Information</strong></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= @order.billing_name %> - <%= @order.billing_address %> - <%= @order.billing_phone_number %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Shipping Information</strong></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <%= @order.shipping_name %> - <%= @order.shipping_address %> - <%= @order.shipping_phone_number %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <% if !@order.is_paid? %>
+                  <div class="group pull-right">
+                    <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+                    <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
+                  </div>
+                <% end %>
 
 
+        </div>
+      </div>
+      <!-- REVIEW ORDER END -->
+
+
+
+
+
+    </div>
   </div>
-
-</div>

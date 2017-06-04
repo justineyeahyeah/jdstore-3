@@ -1,7 +1,6 @@
 <!-- ↓↓↓ 大图滚动banner 代码块↓↓↓ -->
 <!-- 需在application.js中加入"//= require bootstrap-sprockets"才能动起来 -->
 
-
 <!-- Add this css File in head tag-->
        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" media="all">
@@ -103,9 +102,6 @@
 
 
 
-
-
-
 <div class="hp-header clearer style: text-center">
   <br>
   <p>The Best Bookstore Online
@@ -136,9 +132,11 @@
               <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(product) %>
             <% end %>
           <br>
+          <div class="product-title">
           <%= link_to(product.title, product_path(product)) %>
+          </div>
           <br>
-          <strong>￥ <%= link_to(product.price, product_path(product)) %></strong></p>
+          <strong>￥ <%= product.price %></strong></p>
         </div>
       <% end %>
 
