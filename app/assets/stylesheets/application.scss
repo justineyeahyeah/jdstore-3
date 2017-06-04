@@ -31,6 +31,10 @@
      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
+.dropdown{
+  margin-right: 0px;
+}
+
 //去掉导航栏的圆角
  @media (min-width: 768px) {
     .navbar {
