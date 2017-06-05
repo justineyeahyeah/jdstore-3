@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :validate_search_key, only: [:search]
 
+
+
   def index
     if params[:category].blank?
       @products = Product.where(:is_shelved => true).order("position ASC")
@@ -26,6 +28,7 @@ class ProductsController < ApplicationController
     current_cart.add(@product, @quantity)
     redirect_to product_path(@product)
   end
+
 
 
 

@@ -76,6 +76,7 @@ font-size: 16px;
   .navbar-default .navbar-nav > .active > a:focus {
     color: #FFFFFF;//鼠标放置在链接上的文字颜色
 
+
     background-color: #35938B;
 
   }
@@ -414,4 +415,8 @@ hr{
     top: -12px;
     right: 14px;
     z-index: 9;
+}
+
+.a hover{
+  background-color: transparent;
 }
