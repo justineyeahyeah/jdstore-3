@@ -11,12 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
 //= require jquery_ujs
 //= require bootstrap
+//= require turbolinks
 //= require_tree .
 
 //= require bootstrap/carousel
+
 
 
 //商品页数量加入购物车数量增减

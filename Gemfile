@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -41,22 +41,26 @@ gem 'aasm'
 gem 'acts_as_list'
 gem 'jquery-turbolinks'
 gem 'annotate'
-<<<<<<< HEAD
+
 gem 'will_paginate'
-=======
+
 gem 'ransack'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'seo_helper'
 gem 'intercom-rails'
+gem 'carrierwave-qiniu'
+gem 'qiniu-rs'
+gem 'figaro'
 
->>>>>>> a7211d22243a3a1e21ef70c1db86e5775a540c4c
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
   gem 'pry'
   gem 'awesome_rails_console'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -70,3 +74,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg'
+end

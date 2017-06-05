@@ -31,19 +31,16 @@
               <% end %>
               <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="user-dropdown">
               <% if current_user.admin? %>
-                <li>
-                  <%= link_to(content_tag(:i, " Admin Panel", class: "fa fa-user-circle"), admin_products_path) %>
-                </li>
+                <li><a href="/admin/products">Admin Panel <span class="glyphicon glyphicon-user pull-right"></span></a></li>
               <% end %>
-
-              <li>
-                <%= link_to(content_tag(:i, " My Account", class: "fa fa-user-circle-o"), edit_account_user_path(current_user)) %>
-              </li>
-
-              <li><%= link_to(content_tag(:i, " Order History", class: "fa fa-history"), account_orders_path) %></li>
-              <li><%= link_to(content_tag(:i, ' Sign Out', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %></li>
+              <li class="divider"></li>
+              <li><a href="/account/users/:id/edit">Account Settings<span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a href="/account/orders">Order History <span class="glyphicon glyphicon-time pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
             </ul>
           </li>
          <% end %>
@@ -57,6 +54,7 @@
                   <li>
                     <%= link_to category.name, products_path(category: category.name), class: "link" %>
                   </li>
+                  <li class="divider"></li>
                   <% end %>
                 </ul>
               </li>
