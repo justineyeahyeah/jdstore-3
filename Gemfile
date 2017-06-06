@@ -45,7 +45,7 @@ gem 'annotate'
 gem 'will_paginate'
 
 gem 'ransack'
-gem 'will_paginate'
+
 gem 'will_paginate-bootstrap'
 gem 'seo_helper'
 gem 'intercom-rails'
@@ -60,7 +60,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry'
   gem 'awesome_rails_console'
-  gem 'sqlite3'
 end
 
 group :development do
