@@ -4,41 +4,115 @@
   </p>
 </footer> -->
 
+<!-- footer -->
+<footer class="footer-style">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-8 Footer">
+        <div class="col-xs-4 Footer-links">
 
+          <div class="Footer-linksSection">
+            <h5>Popular Categories</h5>
+            <ul>
+              <li>
+                <a href="#">Kids</a>
+              </li>
+              <li>
+                <a href="#">Teens</a>
+              </li>
+              <li>
+                <a href="#">Self-Help</a>
+              </li>
+              <li>
+                <a href="#">Literature &amp; Fiction</a>
+              </li>
+              <li>
+                <a href="#">Mystery &amp; Thriller</a>
+              </li>
+              <li>
+                <a href="#">Sci-fi &amp; Fantasy</a>
+              </li>
+              <li>
+                <a href="#">Romance</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-  <!-- footer -->
-  <footer class="footer-style">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <h3>原版英文图书</h3>
-          <p class="footer-style-p">吸收英文世界精华的同时，英文水平迅速水涨船高。</p>
+        <div class="col-xs-4 Footer-links">
+          <div class="Footer-linksSection">
+            <div class="Footer-linksHalf">
+              <h5>My Account</h5>
+              <ul>
+                <li>
+                  <a href="/account/users/:id/edit">Account Settings</a>
+                </li>
+                <li>
+                  <%= link_to("Shopping Cart", carts_path) %>
+                </li>
+                  <li>
+                    <a href="/account/orders">Order History</a>
+                  </li>
+                <li>
+                  <a href="/account/favorites">Wish List</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="Footer-linksHalf">
+              <h5>Quick Help</h5>
+              <ul>
+                <li>
+                  <a href="#">Help &amp; Support</a>
+                </li>
+                <li>
+                  <a href="#">Billing</a>
+                </li>
+                <li>
+                  <a href="#">Return Policy</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
-        <div class="customer-service col-xs-12 col-sm-6 col-md-6 text-right">
-          <div class="col-xs-4">
-            <h5>爱阅读小密圈</h5>
-            <p>加入圈子</p>
-            <p>付款流程</p>
-            <p>免费包邮</p>
-          </div>
-          <div class="col-xs-4">
-            <h5>用户指南</h5>
-            <p>常见问题</p>
-            <p>退货退款</p>
-            <p>用户服务</p>
-          </div>
-          <div class="col-xs-4">
-            <h5>关于我们</h5>
-            <p>联系我们</p>
+
+        <div class="col-xs-4 Footer-links">
+          <div class="Footer-linksSection">
+            <div class="Footer-linksHalf">
+              <h5>爱阅读小密圈</h5>
+              <ul>
+              <li><a href="#">加入圈子</a></li>
+              <li><a href="#">付款流程</a></li>
+              <li><a href="#">免费包邮</a></li>
+              </ul>
+            </div>
+
+            <div class="Footer-linksHalf">
+              <h5>关于我们</h5>
+              <ul>
+                <li><a href="#">联系我们</a></li>
+              </ul>
+            </div>
+
           </div>
         </div>
+
       </div>
-        <br>
-        <hr>
-        <div class="row">
-          <p class="text-center">Copyright ©2017 Read In English <br>Design by
-              <a href="/about/index">chensong &amp; justineyeah</a>
-          </p>
-        </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h3>原版英文图书</h3>
+        <p class="footer-style-p">吸收英文世界精华的同时，英文水平迅速水涨船高。</p>
+      </div>
+
     </div>
-  </footer>
+    <br>
+    <hr>
+    <div class="row">
+      <p class="text-center">Copyright ©2017 Read In English
+        <br>Design by
+        <a href="#">chensong &amp; justineyeah</a>
+      </p>
+    </div>
+  </div>
+</footer>

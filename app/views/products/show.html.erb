@@ -11,14 +11,14 @@
 		 </div>
 		 <div class="wish-line text-center" style="margin-top: 20px;">
 			 <% if current_user && current_user.favourite_product?(@product) %>
-			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 22px;">
-				 <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+			 <div class="wish-list" style="padding-left: 22px;">
+				 <i class="fa fa-heart fa-2x" aria-hidden="true" id="fav-heart"></i>
 				<h5 style="height: 20px;line-height: 20px;float: left;">Added To <%= link_to("Wish List", account_favorites_path)%></h5>
 				</div>
 			<% else %>
-			<div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 30px;">
-			 <i class="fa fa-heart-o fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
-			 <%= link_to("Add To Wish List", favourite_product_path(@product), method: :post, style: "height: 20px;line-height: 20px;float: left;margin-top: 10px;font-weight: solid;") %>
+			<div class="wish-list" style="padding-left: 30px;">
+			 <i class="fa fa-heart-o fa-2x" aria-hidden="true" id="unfav-heart"></i>
+			 <%= link_to("Add To Wish List", favourite_product_path(@product), method: :post, class: "favourite") %>
 			 </div>
 			<% end %>
 		</div>

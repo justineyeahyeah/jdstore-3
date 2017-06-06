@@ -23,8 +23,8 @@
                            <% end %>
                            </div>
                     			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 15px;">
-                    				 <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
-                    				<h6 style="height: 20px;line-height: 20px;float: left;"> <%= link_to("Remove From Wish List", unfavourite_product_path(product_fav.product), method: :post) %></h6>
+                    				 <i class="fa fa-heart fa-2x" aria-hidden="true" id="unfav-heart1"></i>
+                    				<h6 class="unfavourite"> <%= link_to("Remove From Wish List", unfavourite_product_path(product_fav.product), method: :post) %></h6>
                     				</div>
                        </td>
                        <td> <%= product_fav.product.title %> </td>

@@ -727,3 +727,32 @@ a:after {
     text-align: center;
 
 }
+
+/*-------------------home review———————————---*/
+.HomeReview-text {
+    margin: 1rem auto;
+    max-width: 750px;
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1.4
+}
+
+.HomeReview-stats {
+    font-size: .875rem
+}
+
+/*-------------------home review———————————---*/
+/* Add color to all icons and set the font-size */
+.logo-small {
+    color: #C86E0A;
+    font-size: 50px;
+}
+
+.logo {
+    color: #705B43;
+    font-size: 50px;
+}
+
+.slogan {
+  font-size: 16px;
+}

@@ -1,5 +1,5 @@
 class Account::UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def edit
     @user = current_user
