@@ -29,6 +29,24 @@ class ProductsController < ApplicationController
     redirect_to product_path(@product)
   end
 
+  def favourite
+     @product = Product.find(params[:id])
+     if !current_user.favourite_product?(@product)
+        current_user.add_favourite!(@product)
+        flash[:notice] = "Book addded successfully to wish list."
+     end
+     redirect_to :back
+    end
+
+    def unfavourite
+      @product = Product.find(params[:id])
+        if current_user.favourite_product?(@product)
+        current_user.cancel_favourite!(@product)
+        flash[:notice] = "Book removed successfully from wish list."
+      end
+     redirect_to :back
+    end
+
 
 
 

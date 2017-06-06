@@ -1,13 +1,28 @@
 <div class="container">
 	<div class="row">
   <!-- product photo -->
-   <div class="col-xs-4 item-photo">
-     <% if @product.image.present? %>
-       <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
-     <% else %>
-       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-     <% end %>
-                </div>
+	<div class="col-xs-4" style="padding: 50px 20px;">
+		 <div class="item-photo">
+		 <% if @product.image.present? %>
+		 <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
+	 <% else %>
+		 <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+		 <% end %>
+		 </div>
+		 <div class="wish-line text-center" style="margin-top: 20px;">
+			 <% if current_user && current_user.favourite_product?(@product) %>
+			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 22px;">
+				 <i class="fa fa-heart-o fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+				<h5 style="height: 20px;line-height: 20px;float: left;">Added To <%= link_to("Wish List", unfavourite_product_path(@product), method: :post)%></h5>
+				</div>
+			<% else %>
+			<div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 30px;">
+			 <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+			 <%= link_to("Add To Wish List", favourite_product_path(@product), method: :post, style: "height: 20px;line-height: 20px;float: left;margin-top: 10px;font-weight: solid;") %>
+			 </div>
+			<% end %>
+		</div>
+	 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
                     <!-- product -->
                     <h3><%= @product.title %></h3>
@@ -36,7 +51,6 @@
                         <button type="submit" class="btn btn-success <%= @product.quantity == 0 ? 'disabled' : '' %>" id="cart-btn">
                         <%= fa_icon("cart-arrow-down", text: "Add to cart") %>
                         </button>
-                        <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Add to wish list </a></h6>
                         <% end %>
                     </div>
                 </div>
