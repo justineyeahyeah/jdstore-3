@@ -1,0 +1,37 @@
+<div class="row">
+        <div class="col-md-10">
+            <h2>My wish list</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="220">Product Pic</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% current_user.product_favs.each do |product_fav| %>
+                    <tr>
+                      <td>
+                        <div class="fav-photo" style="padding: 0 45px;">
+                        <%= link_to product_path(product_fav.product) do %>
+                           <% if product_fav.product.image.present? %>
+                             <%= image_tag(product_fav.product.image.thumb.url, class: "thumbnail") %>
+                           <% else %>
+                             <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                            <% end %>
+                           <% end %>
+                           </div>
+                    			 <div class="wish-list" style="width: 200px;border: 1px solid #35938B;height: 45px;padding-left: 15px;">
+                    				 <i class="fa fa-heart fa-2x" aria-hidden="true" style="color: #cd4343;font-size:20px;margin-top: 10px;margin-right:5px;float: left;"></i>
+                    				<h6 style="height: 20px;line-height: 20px;float: left;"> <%= link_to("Remove From Wish List", unfavourite_product_path(product_fav.product), method: :post) %></h6>
+                    				</div>
+                       </td>
+                       <td> <%= product_fav.product.title %> </td>
+                       <td> <%= product_fav.product.price %> </td>
+                     </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>

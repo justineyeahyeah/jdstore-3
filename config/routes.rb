@@ -62,8 +62,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :orders
     resources :users
+    resources :favorites
   end
-
-
 
 end

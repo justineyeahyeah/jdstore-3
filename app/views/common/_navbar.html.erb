@@ -40,6 +40,10 @@
               <li class="divider"></li>
               <li><a href="/account/orders">Order History <span class="glyphicon glyphicon-time pull-right"></span></a></li>
               <li class="divider"></li>
+              <li>
+                <%= link_to account_favorites_path do %> My Wish List <i class= "fa fa-heart fa-md"></i><% end %>
+              </li>
+              <li class="divider"></li>
               <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign Out<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
             </ul>
           </li>

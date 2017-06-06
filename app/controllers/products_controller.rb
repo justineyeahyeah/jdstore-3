@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :validate_search_key, only: [:search]
+  before_action :authenticate_user! , only: [:favourite, :unfavourite]
 
 
 
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @products = Product.where(:is_shelved => true).where(:category_id => @category_id)
     end
+
   end
 
   def show
