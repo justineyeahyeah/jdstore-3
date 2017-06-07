@@ -154,6 +154,19 @@ Product.create!(title: "The Black Swan",
     image: open("http://ww3.sinaimg.cn/large/006tNc79gy1fg50r45ysdj30900dvgm5.jpg")
     )
 
+    Product.create!(title: "Crucial Conversations",
+        author: "Kerry Patterson",
+        description: "The New York Times and Washington Post bestseller that changed the way millions communicate.",
+        publisher: "McGraw-Hill Professional Publishing",
+        publication_date: "August 19, 2011",
+        pages: 272,
+        price: 10.99,
+        quantity: 99,
+        is_shelved: true,
+        category_id: 3,
+        image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fgcysa0b4mj305c080glw.jpg")
+        )
+
 
 # Initialize category
     Category.create!(name: "Youth")
