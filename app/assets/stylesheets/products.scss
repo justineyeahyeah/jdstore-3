@@ -49,6 +49,22 @@ div.section > div {width:100%;display:inline-flex;}
 .attr,.attr2{cursor:pointer;margin-right:5px;height:20px;font-size:10px;padding:2px;border:1px solid gray;border-radius:2px;}
 .attr.active,.attr2.active{ border:1px solid orange;}
 
+//book title in product show
+h3.book-title {
+  margin-top: 5px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+
+}
+
+.book-author a {
+  font-weight: 500;
+  font-size: 18px;
+  color: #2C7B74;
+}
+
+
 @media (max-width: 426px) {
     .container {margin-top:0px !important;}
     .container > .row{padding:0px !important;}

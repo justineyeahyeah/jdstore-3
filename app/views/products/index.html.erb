@@ -30,9 +30,12 @@
           <% end %>
           </div>
         <br>
-        <h4 class="product-title">
-        <%= link_to(product.title, product_path(product), target: "_blank", style: "text-align: center;") %>
+        <h4 class="product-title text-center">
+        <%= link_to(product.title, product_path(product), target: "_blank") %>
       </h4>
+      <p class="product-author text-center">
+        <%= link_to(product.author, "#", target: "_blank") %>
+      </p>
       </div>
     </div>
     <% end %>
