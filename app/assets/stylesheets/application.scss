@@ -365,6 +365,8 @@ hr{
   font-size: 13.5px;
   font-weight: bold;
   color: #2C7B74;
+  display: inline;
+  overflow: hidden;
 }
 
 .product-author a {
@@ -409,16 +411,8 @@ color: #18433F;
   background-color: transparent;
 }
 
-//products-list
-#products-list h4{
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  margin: auto;
-  width: 120px;
-  text-align: center;
-  overflow: hidden;
-}
+
+
 
 //rating
 .rating {

@@ -109,22 +109,18 @@
   </br>Over 6 million books ready for shipment within 24 hours and 4.5 million eBooks to download now.
   <p>
     <hr>
-
-    <h2 style="font-family:Poynter,serif;">Recommended For You</h2>
-    <br>
-    <br>
-
   </div>
 
   <!-- 首页精选商品列表 -->
-  <div class="container-fluid">
-
+  <div class="container-fluid text-center">
+      <h2 style="font-family:Poynter,serif;">Recommended For You</h2>
+    <p><%= link_to("View all", products_path, class: "pull-right viewspan1", style: "color: #2C7B74;" ) %></p>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
 
         <% @products.each do |product| %>
         <div class="book-item">
-          <div class="col-xs-12 col-sm-6 col-md-2" style="width:160px;" id="products-list">
+          <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;">
             <div class="product-image">
               <% link_to product_path(product) %>
               <% if product.image.present? %>
@@ -146,10 +142,6 @@
           </div>
         </div>
         <% end %>
-      </div>
-
-      <div class="col-xs-6">
-        <%= link_to("more >", products_path, class: "pull-right morespan") %>
       </div>
 
     </div>

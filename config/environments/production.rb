@@ -75,6 +75,19 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.action_mailer.default_url_options = { :host => '你的herokuapp地址'}
+
+   config.action_mailer.delivery_method = :smtp
+   ActionMailer::Base.smtp_settings = {
+     address: "smtpcloud.sohu.com",
+     port: 25,
+     domain: "heroku.com",
+     authentication: "login",
+     enable_starttls_auto: true,
+     user_name: ENV["SEND_CLOUD_USER_NAME"],
+     password: ENV["SEND_CLOUD_USER_KEY"]
+     }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

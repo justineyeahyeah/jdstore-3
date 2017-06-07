@@ -116,3 +116,35 @@ h4.book-author a {
   line-height: 20px;
   float: left;
 }
+
+
+//products-list
+.products-list h4.product-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0 auto;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  overflow: hidden;
+  display: block;
+  text-overflow : ellipsis;
+}
+.all-product-box {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+a.viewspan1 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px 70px 10px 0px;
+}
+
+a.viewspan {
+  font-size: 16px;
+  font-weight: 700;
+}
