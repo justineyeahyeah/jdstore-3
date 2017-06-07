@@ -12,29 +12,19 @@
 
 
  production:
-   qiniu_access_key: iRs_T9Tscf7l24520s7lKGSV5OZqCOMZHm429s0x  # 你的 qiniu AccessKey
-
-   qiniu_secret_key: jyOW0FPybTFraJaT0uGh68cGTeBxzAG2bZOWG2EF  # 你的 qiniu SecretKey
-
+   qiniu_access_key: rEGc7ikEGnDvymwBNOq2HY774mGpyuDNRB3OS5U-  # 你的 qiniu AccessKey
+   qiniu_secret_key: ILQJTvnkhq5W-kjaA1By9Of2lfQBggsfgjZPYUMR  # 你的 qiniu SecretKey
    qiniu_bucket: jdstore-demo  # 你的 qiniu bucket
-
    qiniu_bucket_domain: oqgm249w1.bkt.clouddn.com  # 你的 qiniu bucket domain
-
    SEND_CLOUD_USER_NAME: "justineyeah_test_oE8Yzx"  # 你的 API_USER
-
-   SEND_CLOUD_USER_KEY: "这里是您手动生成的API_KEY"  # 你的 API_KEY
+   SEND_CLOUD_USER_KEY: "QVJxtSohHMWT596R"  # 你的 API_KEY
 
 
 
  development:
-   qiniu_access_key: iRs_T9Tscf7l24520s7lKGSV5OZqCOMZHm429s0x  # 你的 qiniu AccessKey
-
-   qiniu_secret_key: jyOW0FPybTFraJaT0uGh68cGTeBxzAG2bZOWG2EF  # 你的 qiniu SecretKey
-
+   qiniu_access_key: rEGc7ikEGnDvymwBNOq2HY774mGpyuDNRB3OS5U-  # 你的 qiniu AccessKey
+   qiniu_secret_key: ILQJTvnkhq5W-kjaA1By9Of2lfQBggsfgjZPYUMR  # 你的 qiniu SecretKey
    qiniu_bucket: jdstore-demo  # 你的 qiniu bucket
-
    qiniu_bucket_domain: oqgm249w1.bkt.clouddn.com  # 你的 qiniu bucket domain
-
    SEND_CLOUD_USER_NAME: "justineyeah_test_oE8Yzx"  # 你的 API_USER
-
-   SEND_CLOUD_USER_KEY: "这里是您手动生成的API_KEY"  # 你的 API_KEY
+   SEND_CLOUD_USER_KEY: "QVJxtSohHMWT596R"  # 你的 API_KEY
