@@ -85,7 +85,7 @@ Product.create!(title: "Harry Potter and the Cursed Child, Parts 1 & 2, Special 
     pages: 300,
     price: 16.99,
     quantity: 10,
-    category_id: 1,
+    category_id: 2,
     image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg4z68dy9pj30990dwgm7.jpg")
     )
 
@@ -111,7 +111,7 @@ Product.create!(title: "Principles: Life and Work",
     price: 14.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 2,
+    category_id: 3,
     image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg4zvsdudnj312v1lrjsx.jpg")
     )
 
@@ -124,7 +124,7 @@ Product.create!(title: "The Leadership Pipeline: How to Build the Leadership Pow
     price: 15.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 2,
+    category_id: 4,
     image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fg50cjfntaj309h0dv0tf.jpg")
     )
 
@@ -137,7 +137,7 @@ Product.create!(title: "Guns, Germs, and Steel: The Fates of Human Societies 1st
     price: 9.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 3,
+    category_id: 5,
     image: open("http://ww1.sinaimg.cn/large/006tNc79gy1fg50mtvav6j30940dvaaw.jpg")
     )
 
@@ -150,7 +150,7 @@ Product.create!(title: "The Black Swan",
     price: 10.99,
     quantity: 99,
     is_shelved: true,
-    category_id: 3,
+    category_id: 6,
     image: open("http://ww3.sinaimg.cn/large/006tNc79gy1fg50r45ysdj30900dvgm5.jpg")
     )
 
@@ -163,15 +163,20 @@ Product.create!(title: "The Black Swan",
         price: 10.99,
         quantity: 99,
         is_shelved: true,
-        category_id: 3,
+        category_id: 7,
         image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fgcysa0b4mj305c080glw.jpg")
         )
 
 
 # Initialize category
-    Category.create!(name: "Youth")
+    Category.create!(name: "Hobbies & Collectibles")
 
-    Category.create!(name: "History")
+    Category.create!(name: "Kids")
 
 
-    Category.create!(name: "Cognitive Science")
+    Category.create!(name: "Ebook")
+
+    Category.create!(name: "Teens")
+    Category.create!(name: "Toys & Games")
+    Category.create!(name: "Home & Gifts")
+    Category.create!(name: "Movies & TV")
