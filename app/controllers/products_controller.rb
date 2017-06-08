@@ -16,6 +16,13 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @comments = @product.comments.all
+
+     if @comments.blank?
+            @avg_comment = 0
+     else
+            @avg_comment = @comments.average(:rating).present? ? comments.average(:rating).round(2) : 0
+     end
   end
 
   def add_to_cart

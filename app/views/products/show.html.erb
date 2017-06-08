@@ -30,8 +30,11 @@
 			<h4 class="book-author">
 				by
 				<a href="#"><%= @product.author %></a>
-				<small>(<%= @product.comments.count %> comments)</small>
 			</h4>
+			<div class="rating-comment">
+				<div class="star-rating" data-score=<%= @avg_review %> ></div>
+				<p><%= @product.comments.count %> comments</p>
+			</div>
 
 			<!-- details -->
 			<h4 class="title-price">

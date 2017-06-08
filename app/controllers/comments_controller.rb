@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @comment = @product.comments.new(comment_params)
+    @comment.product = @product
     @comment.user = current_user
 
     if @comment.save
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :rating)
   end
 
 end
