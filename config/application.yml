@@ -15,7 +15,7 @@
    qiniu_access_key: rEGc7ikEGnDvymwBNOq2HY774mGpyuDNRB3OS5U-  # 你的 qiniu AccessKey
    qiniu_secret_key: ILQJTvnkhq5W-kjaA1By9Of2lfQBggsfgjZPYUMR  # 你的 qiniu SecretKey
    qiniu_bucket: jdstore-demo  # 你的 qiniu bucket
-   qiniu_bucket_domain: oqgm249w1.bkt.clouddn.com  # 你的 qiniu bucket domain
+   qiniu_bucket_domain: oqwfjzfd2.bkt.clouddn.com  # 你的 qiniu bucket domain
    SEND_CLOUD_USER_NAME: "justineyeah_test_oE8Yzx"  # 你的 API_USER
    SEND_CLOUD_USER_KEY: "QVJxtSohHMWT596R"  # 你的 API_KEY
 
@@ -25,6 +25,6 @@
    qiniu_access_key: rEGc7ikEGnDvymwBNOq2HY774mGpyuDNRB3OS5U-  # 你的 qiniu AccessKey
    qiniu_secret_key: ILQJTvnkhq5W-kjaA1By9Of2lfQBggsfgjZPYUMR  # 你的 qiniu SecretKey
    qiniu_bucket: jdstore-demo  # 你的 qiniu bucket
-   qiniu_bucket_domain: oqgm249w1.bkt.clouddn.com  # 你的 qiniu bucket domain
+   qiniu_bucket_domain: oqwfjzfd2.bkt.clouddn.com  # 你的 qiniu bucket domain
    SEND_CLOUD_USER_NAME: "justineyeah_test_oE8Yzx"  # 你的 API_USER
    SEND_CLOUD_USER_KEY: "QVJxtSohHMWT596R"  # 你的 API_KEY
