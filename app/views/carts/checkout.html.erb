@@ -88,8 +88,9 @@
                             <div class="panel-body">
                               <% current_cart.cart_items.each do |cart_item| %>
                               <div class="form-group">
+                                <div class="row">
                                 <div class="col-sm-3 col-xs-3">
-                                  <div class="media" style="width: 72px; height: 72px;">
+                                  <div class="media" style="width: 160px; height: 72px;">
                                   <%= link_to product_path(cart_item.product) do %>
                                     <% if cart_item.product.image.present? %>
                                       <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>
@@ -110,7 +111,7 @@
                                   <h6>
                                     <span>¥</span><%= cart_item.product.price %></h6>
                                 </div>
-
+                              </div>
                               </div>
                               <div class="form-group"><hr/></div>
                               <% end %>
