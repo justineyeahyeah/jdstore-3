@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
      if @comments.blank?
             @avg_comment = 0
      else
-            @avg_comment = @comments.average(:rating).present? ? comments.average(:rating).round(2) : 0
+            @avg_comment = @comments.average(:rating).present? ? @comments.average(:rating).round(2) : 0
      end
   end
 

@@ -47,21 +47,3 @@ $(document).on('turbolinks:load', function() {
 
 
 //Rating
-
-$('.star-rating').raty({
-      path: '/assets/images/',
-          readOnly: true,
-          score: function() {
-        return $(this).attr('data-score');
-      }
-});
-
-$('#star-rating').raty({
-path: '/assets/images/',
-scoreName: 'comment[rating]'
-});
-
-
-
-<!-- 必须要选一颗星 -->
-$('#star-rating img').eq(0).trigger('click')
