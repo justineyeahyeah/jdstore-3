@@ -1,8 +1,17 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+
+  def new
+    @product = Product.find(params[:product_id])
+    @comment = Comment.new
+  end
+
+
+
+
   def create
     @product = Product.find(params[:product_id])
-    @comment = @product.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.product = @product
     @comment.user = current_user
 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 100px;">
 	<div class="row">
 		<!-- product photo -->
 		<div class="col-xs-4" style="padding: 50px 20px;">
@@ -106,16 +106,17 @@
 						<div class="comments">
 							<%= render @product.comments %>
 							<hr>
-							<%= render 'comments/form' %>
+							<%= link_to("Add a comment", new_product_comment_path(@product), class:"btn btn-primary") %>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		</div>
+
 <script>
 $('.star-rating').raty({
-			path: '/assets/images/',
+			path: '/assets/',
 					readOnly: true,
 					score: function() {
 				return $(this).attr('data-score');
@@ -123,7 +124,7 @@ $('.star-rating').raty({
 });
 
 $('#star-rating').raty({
-path: '/assets/images/',
+path: '/assets/',
 scoreName: 'comment[rating]'
 });
 

@@ -1,7 +1,7 @@
 <div class="comments_wrapper clearfix">
-  <div class="pull-left">
+  <!---<div class="pull-left">
     Rating： <div class="star-rating" data-score= <%= comment.rating %> ></div>
-  </div>
+  </div>-->
   <div class="pull-left">
     <p class="lead"><%= comment.body %></p>
     <p>
@@ -21,7 +21,7 @@
 
 <script>
 $('.star-rating').raty({
-			path: '/assets/images/',
+			path: '/assets/',
 					readOnly: true,
 					score: function() {
 				return $(this).attr('data-score');
@@ -29,7 +29,7 @@ $('.star-rating').raty({
 });
 
 $('#star-rating').raty({
-path: '/assets/images/',
+path: '/assets/',
 scoreName: 'comment[rating]'
 });
 
