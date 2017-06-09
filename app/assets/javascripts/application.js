@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 
 
 //Rating
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
 $('.star-rating').raty({
 			path: '/images/',
 					readOnly: true,
@@ -64,3 +64,4 @@ scoreName: 'comment[rating]'
 
 <!-- 必须要选一颗星 -->
 $('#star-rating img').eq(0).trigger('click')
+})

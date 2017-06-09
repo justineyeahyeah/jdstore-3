@@ -3,32 +3,33 @@
   <h4>
     <strong>You are commenting
       <%= link_to(@product.title, product_path(@product),target: "_blank", style:"color:#2C7B74;") %>
-    </strong></h4>
-      <div class="col-md-2 product-image pull-left" style="margin-bottom: 30px;">
-        <% link_to product_path(@product) %>
-        <% if @product.image.present? %>
-        <%= link_to image_tag(@product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(@product) %>
-      <% else %>
-        <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(@product) %>
-        <% end %>
+    </strong>
+  </h4>
+  <div class="col-md-2 product-image pull-left" style="margin-bottom: 30px;">
+    <% link_to product_path(@product) %>
+    <% if @product.image.present? %>
+    <%= link_to image_tag(@product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(@product) %>
+  <% else %>
+    <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(@product) %>
+    <% end %>
+  </div>
+  <%= simple_form_for ([@product, @product.comments.build]) do |f| %>
+    <div class="col-md-8">
+      <div class="rating clearfix" style="float: left;margin-left: 20px;">
+        <div id="star-rating" style="float: left;padding-top: 5px;"></div>
+        <h4 style="float: right;margin-left: 10px;">
+          <em>Select a rating.</em>
+        </h4>
       </div>
-      <div class="col-md-8">
-        <div class="rating clearfix" style="float: left;margin-left: 20px;">
-          <div id="star-rating" style="float: left;padding-top: 5px;"></div><h4 style="float: right;margin-left: 10px;"><em>Select a rating.</em></h4>
-
+      <div class="new-comment">
+        <div class="form-group">
+          <%= f.text_area :body, rows: "6", placeholder: 'Comment: Without spoilers, explain what you liked and disliked about the book, the characters, etc. Who should read the book? What are some similar books and authors?', class: "form-control" %>
         </div>
-        <div class="new-comment">
-          <%= simple_form_for ([@product, @product.comments.build]) do |f| %>
-          <div class="form-group">
-            <%= f.text_area :body, rows: "6", placeholder: 'Comment: Without spoilers, explain what you liked and disliked about the book, the characters, etc. Who should read the book? What are some similar books and authors?', class: "form-control" %>
-          </div>
 
-          <div class="form-actions">
-            <%= f.submit "Publish", class: "btn btn-primary pull-right", style: "background-color:#2C7B74;"%>
-          </div>
-
-          <% end %>
+        <div class="form-actions">
+          <%= f.submit "Publish", class: "btn btn-primary pull-right", style: "background-color:#2C7B74;"%>
         </div>
       </div>
-
     </div>
+  <% end %>
+</div>

@@ -134,9 +134,9 @@
             <p class="product-author text-center">
               <%= link_to(product.author, "#", target: "_blank") %>
             </p>
-            <div class="rating">
-              <div class="star-rating" data-score=<%= @avg_comment %> ></div>
-            </div>
+            <div class="rating" style="width: 120px; margin: 0 auto;">
+      				<div class="star-rating" data-score=<%= product.comments.average(:rating) %> ></div>
+      			</div>
           </div>
         </div>
         <% end %>
