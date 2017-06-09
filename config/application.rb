@@ -14,4 +14,5 @@ module Jdstore
 
     config.time_zone = "Beijing"
   end
+  Time::DATE_FORMATS.merge!(:default => '%Y/%m/%d %I:%M %p', :ymd => '%Y/%m/%d')
 end

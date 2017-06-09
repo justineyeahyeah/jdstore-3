@@ -9,7 +9,7 @@
         <% else %>
         <%= comment.user.email %>
         <% end %>
-        <strong><%= comment.created_at %></strong>
+        <strong><%= comment.created_at.to_s %></strong>
 
       </small>
     </p>
