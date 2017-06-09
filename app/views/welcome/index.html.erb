@@ -135,7 +135,11 @@
               <%= link_to(product.author, "#", target: "_blank") %>
             </p>
             <div class="rating" style="width: 120px; margin: 0 auto;">
-      				<div class="star-rating" data-score=<%= @avg_comment %> ></div>
+              <% if product.comments.blank? %>
+              <div class="star-rating" data-score="0"></div>
+              <% else %>
+      				<div class="star-rating" data-score=<%= product.comments.average(:rating).present? ? product.comments.average(:rating).round(2) : 0 %> ></div>
+              <% end %>
       			</div>
           </div>
         </div>

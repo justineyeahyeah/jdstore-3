@@ -11,11 +11,6 @@ class ProductsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @products = Product.where(:is_shelved => true).where(:category_id => @category_id)
     end
-    if @comments.blank?
-      @avg_comment = 0
-    else
-      @avg_comment = @comments.average(:rating).present? ? @comments.average(:rating).round(2) : 0
-    end
   end
 
   def show
