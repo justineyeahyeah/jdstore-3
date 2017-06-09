@@ -36,6 +36,10 @@ class Product < ApplicationRecord
     self.save
   end
 
+  def to_param
+     "#{self.id}-#{self.title}"
+  end
+
 
 
 
