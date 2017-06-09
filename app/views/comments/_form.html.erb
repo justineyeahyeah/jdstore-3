@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2" style="margin-bottom: 100px;">
+<div class="col-md-6" style="margin-bottom: 100px;">
   <h1>Publish a Comment</h1>
   <h4>
     <strong>You are commenting
@@ -30,23 +30,4 @@
           <% end %>
         </div>
       </div>
-
-    </div>
-
-    <script>
-      $('.star-rating').raty({
-        path: '/assets/',
-        readOnly: true,
-        score: function () {
-          return $(this).attr('data-score');
-        }
-      });
-
-      $('#star-rating').raty({
-        path: '/assets/',
-        scoreName: 'comment[rating]'
-      });
-
-      <!-- 必须要选一颗星 -->
-      $('#star-rating img').eq(0).trigger('click')
-    </script>
+        </div>

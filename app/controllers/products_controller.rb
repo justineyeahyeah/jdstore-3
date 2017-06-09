@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @comments = @product.comments.all
+    @comments = @product.comments.order("created_at DESC")
+    @comment = Comment.new
      if @comments.blank?
        @avg_comment = 0
      else

@@ -32,7 +32,7 @@ class User < ApplicationRecord
   end
 
   has_many :orders
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :product_favs
   has_many :products, through: :product_favs, source: :product
 

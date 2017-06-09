@@ -22,7 +22,7 @@ class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_list
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :product_favs
   has_many :users, through: :product_favs, source: :user
 
