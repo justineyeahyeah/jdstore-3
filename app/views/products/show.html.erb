@@ -89,13 +89,13 @@
 									<%= link_to("Write a comment", new_product_comment_path(@product), class: "btn btn-primary BookComments-writeButton", style: "background-color:#2C7B74;color: #fff;")%>
 	            </div>
 							</div>
-							<% if @product.comments.blank? %>
-						  <div class="no-comments">
-						    <p>There are currently no reviews. <%= link_to("Be the first to review this work.", new_product_comment_path(@product), style: "text-decoration: none;")%></p>
-						  </div>
-							<% end %>
 						</div>
 					</div>
+					<% if @product.comments.blank? %>
+					<div class="col-md-12 no-comments">
+						<p>There are currently no reviews. <%= link_to("Be the first to review this work.", new_product_comment_path(@product), style: "text-decoration: none;")%></p>
+					</div>
+					<% end %>
 					<div class="col-md-12 comments-body">
 						<%= render @product.comments %>
 					</div>
