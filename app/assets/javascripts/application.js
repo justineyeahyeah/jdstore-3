@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.raty
 //= require turbolinks
 //= require_tree .
 
-//= require bootstrap/carousel
 
 
 
@@ -47,3 +47,20 @@ $(document).on('turbolinks:load', function() {
 
 
 //Rating
+$(document).ready(function() {
+$('.star-rating').raty({
+			path: '/images/',
+					readOnly: true,
+					score: function() {
+				return $(this).attr('data-score');
+			}
+});
+
+$('#star-rating').raty({
+path: '/images/',
+scoreName: 'comment[rating]'
+});
+
+
+<!-- 必须要选一颗星 -->
+$('#star-rating img').eq(0).trigger('click')
