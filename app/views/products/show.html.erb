@@ -31,6 +31,7 @@
 				by
 				<a href="#"><%= @product.author %></a>(<%= @product.comments.count %> comments)
 			</h4>
+			<!--在产品展示区加上产品平均分@avg_comment-->
 			<div class="rating">
 				<div class="star-rating" data-score=<%= @avg_comment %> ></div>
 			</div>
@@ -76,10 +77,12 @@
 	                <div>Average Rating</div>
 	                <small><%= @product.comments.count %> ratings</small>
 									<% if @product.comments.present? %>
+									 <!-- 以数字形式显示平均分，round(1)表示只取小数点后一位 -->
 	                <h3><%= @product.comments.average(:rating).round(1) %></h3>
 									<% else %>
 									<h3>0</h3>
 									<% end %>
+									 <!--在评论区加上产品平均分@avg_comment-->
 	                <div class="rating">
 	          				<div class="star-rating" data-score=<%= @avg_comment %> ></div>
 	          			</div>
@@ -93,7 +96,7 @@
 					</div>
 					<% if @product.comments.blank? %>
 					<div class="col-md-12 no-comments">
-						<p>There are currently no reviews. <%= link_to("Be the first to review this work.", new_product_comment_path(@product), style: "text-decoration: none;")%></p>
+						<p>There are currently no comments. <%= link_to("Be the first to comment this work.", new_product_comment_path(@product), style: "text-decoration: none;")%></p>
 					</div>
 					<% end %>
 					<div class="col-md-12 comments-body">

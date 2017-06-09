@@ -15,6 +15,7 @@
   </div>
   <%= simple_form_for ([@product, @product.comments.build]) do |f| %>
     <div class="col-md-8">
+      <!--注意rating的div必须包在simple_form_for的div里面，否则评论时无法存取rating的数据-->
       <div class="rating clearfix" style="float: left;margin-left: 20px;">
         <div id="star-rating" style="float: left;padding-top: 5px;"></div>
         <h4 style="float: right;margin-left: 10px;">
@@ -23,6 +24,7 @@
       </div>
       <div class="new-comment">
         <div class="form-group">
+          <!--rows: "6"可以设置text_area的行数-->
           <%= f.text_area :body, rows: "6", placeholder: 'Comment: Without spoilers, explain what you liked and disliked about the book, the characters, etc. Who should read the book? What are some similar books and authors?', class: "form-control" %>
         </div>
 

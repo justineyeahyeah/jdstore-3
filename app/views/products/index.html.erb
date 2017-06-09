@@ -23,6 +23,7 @@
               <%= link_to(product.author, "#", target: "_blank") %>
             </p>
             <div class="rating text-center" style="width: 120px; margin: 0 auto;">
+              <!-- @avg_comment只在show页面可用，在其他页面可以用product.comments.average(:rating) -->
               <div class="star-rating" data-score=<%= product.comments.average(:rating) %> ></div>
             </div>
           </div>

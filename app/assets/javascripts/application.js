@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 
 
 //Rating
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() { //不要漏了这一行
 $('.star-rating').raty({
 			path: '/images/',
 					readOnly: true,
@@ -64,4 +64,4 @@ scoreName: 'comment[rating]'
 
 <!-- 必须要选一颗星 -->
 $('#star-rating img').eq(0).trigger('click')
-})
+})//不要漏了这一行
