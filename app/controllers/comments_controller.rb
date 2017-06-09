@@ -18,7 +18,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to product_path(@product), notice: 'Comment was successfully created.'
     else
-      redirect_to product_path(@product), notice: 'You have to write some words.'
+      render :new
+      flash[:notice] = 'You have to write some words.'
     end
   end
 

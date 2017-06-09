@@ -23,6 +23,9 @@
               <%= link_to(product.author, "#", target: "_blank") %>
             </p>
           </div>
+          <div class="rating">
+            <div class="star-rating" data-score=<%= @avg_comment %> ></div>
+          </div>
         </div>
         <% end %>
 
@@ -90,3 +93,19 @@
 
 
 </div>
+
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  });
+
+  $('#star-rating').raty({path: '/assets/', scoreName: 'comment[rating]'});
+
+  <!-- 必须要选一颗星 -->
+  $('#star-rating img').eq(0).trigger('click')
+</script>

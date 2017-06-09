@@ -29,11 +29,10 @@
 			<h3 class="book-title"><%= @product.title %></h3>
 			<h4 class="book-author">
 				by
-				<a href="#"><%= @product.author %></a>
+				<a href="#"><%= @product.author %></a>(<%= @product.comments.count %> comments)
 			</h4>
-			<div class="rating-comment">
-				<div class="star-rating" data-score=<%= @avg_review %> ></div>
-				<p><%= @product.comments.count %> comments</p>
+			<div class="rating">
+				<div class="star-rating" data-score=<%= @avg_comment %> ></div>
 			</div>
 
 			<!-- details -->
@@ -106,7 +105,7 @@
 						<div class="comments">
 							<%= render @product.comments %>
 							<hr>
-							<%= link_to("Add a comment", new_product_comment_path(@product), class:"btn btn-primary") %>
+							<%= link_to("Add a comment", new_product_comment_path(@product), class:"btn btn-primary", style: "background-color:#2C7B74;color: #fff;") %>
 						</div>
 					</div>
 				</div>

@@ -134,9 +134,9 @@
             <p class="product-author text-center">
               <%= link_to(product.author, "#", target: "_blank") %>
             </p>
-            <!--<div class="rating" style="margin-bottom: 20px;">
-              rating
-            </div> -->
+            <div class="rating">
+              <div class="star-rating" data-score=<%= @avg_comment %> ></div>
+            </div>
           </div>
         </div>
         <% end %>
@@ -342,3 +342,18 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function () {
+        return $(this).attr('data-score');
+      }
+    });
+
+    $('#star-rating').raty({path: '/assets/', scoreName: 'comment[rating]'});
+
+    <!-- 必须要选一颗星 -->
+    $('#star-rating img').eq(0).trigger('click')
+  </script>
