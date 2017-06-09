@@ -67,48 +67,63 @@
 			</div>
 		</div>
 		</div>
-
-
-
-		<div class="row">
-			<div class="col-md-6">
-				<ul class="nav nav-tabs">
-					<li class="active">
-						<a data-toggle="tab" href="#book-details">Book details</a>
-					</li>
-					<li>
-						<a data-toggle="tab" href="#comments"><%= @product.comments.count %>
-							Comments</a>
-					</li>
-				</ul>
-
-				<div class="tab-content" style="padding-left: 50px;">
-					<div id="book-details" class="tab-pane fade in active">
-						<h4>Book details</h4>
-						<p>
-							<strong>Category：</strong><%= @product.category.name %>
-						</p>
-						<p>
-							<strong>Publisher：</strong>
-							<%= @product.publisher %>
-						</p>
-						<p>
-							<strong>Publication Date：</strong>
-							<%= @product.publication_date %>
-						</p>
-						<p>
-							<strong>Length：</strong>
-							<%= @product.pages %>
-						</p>
-					</div>
-					<div id="comments" class="tab-pane fade">
+<hr>
+					<div class="row">
+					<div class="col-md-12" id="comments">
 						<div class="comments">
-							<%= render @product.comments %>
-							<hr>
-							<%= link_to("Add a comment", new_product_comment_path(@product), class:"btn btn-primary", style: "background-color:#2C7B74;color: #fff;") %>
+							<h2>Customer Comments</h2>
+							<div class="col-md-2 BookComments-overallScore">
+	                <div>Average Rating</div>
+	                <small><%= @product.comments.count %> ratings</small>
+									<% if @product.comments.present? %>
+	                <h3><%= @product.comments.average(:rating).round(1) %></h3>
+									<% else %>
+									<h3>0</h3>
+									<% end %>
+	                <div class="rating">
+	          				<div class="star-rating" data-score=<%= @avg_comment %> ></div>
+	          			</div>
+	            </div>
+	            <div class="col-md-10 BookComments-writeButtonContainer">
+	                <p>Share your thoughts on <%= @product.title %></p>
+									<%= link_to("Write a comment", new_product_comment_path(@product), class: "btn btn-primary BookComments-writeButton", style: "background-color:#2C7B74;color: #fff;")%>
+	            </div>
+							</div>
+							<% if @product.comments.blank? %>
+						  <div class="no-comments">
+						    <p>There are currently no reviews. <%= link_to("Be the first to review this work.", new_product_comment_path(@product), style: "text-decoration: none;")%></p>
+						  </div>
+							<% end %>
 						</div>
 					</div>
+					<div class="col-md-12 comments-body">
+						<%= render @product.comments %>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-12 book-details">
+							<hr>
+							<h2>Book details</h2>
+							<p>
+								<strong>Overview：</strong><%= @product.description %>
+							</p>
+									<p>
+										<strong>Category：</strong><%= @product.category.name %>
+									</p>
+									<p>
+										<strong>Publisher：</strong>
+										<%= @product.publisher %>
+									</p>
+									<p>
+										<strong>Publication Date：</strong>
+										<%= @product.publication_date %>
+									</p>
+									<p>
+										<strong>Length：</strong>
+										<%= @product.pages %>
+									</p>
+								</div>
+								</div>
+
 				</div>
-			</div>
-		</div>
-		</div>
