@@ -4,7 +4,7 @@
     <h2>Recommended For You</h2>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks">
-        <% @products.each do |product| %>
+        <% Product.order("price DESC").each do |product| %>
         <div class="book-item">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;padding: 15px;">
             <div class="product-image">
@@ -58,7 +58,7 @@
     <h4>Hot books that are flying off our shelves</h4>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks">
-        <% @products.each do |product| %>
+        <% Product.all.sort_by{|product| product.comments.count}.reverse.each do |product| %>
         <div class="book-item">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;padding: 15px;">
             <div class="product-image">
