@@ -756,3 +756,28 @@ a:after {
 .slogan {
   font-size: 16px;
 }
+
+.book-item .options {
+  position:absolute;
+  right:22px;
+}
+
+.book-item .product-image .options
+{
+  display:none;
+}
+
+.book-item .options-cart {
+  position:absolute;
+  left:22px;
+  display:none;
+}
+.book-item .product-image:hover .options,
+.book-item .product-image:hover .options-cart {
+  display:block;
+  -webkit-animation: fadeIn .5s ease;
+  -moz-animation: fadeIn .5s ease;
+  -ms-animation: fadeIn .5s ease;
+  -o-animation: fadeIn .5s ease;
+  animation: fadeIn .5s ease;
+}

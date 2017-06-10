@@ -120,6 +120,25 @@
         <div class="book-item">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;">
             <div class="product-image">
+              <div class="options">
+                <!-- 收藏 -->
+                <% if current_user && current_user.favourite_product?(product) %>
+                    <%= link_to("" ,unfavourite_product_path(product), method: :post, class: "btn btn-default fa fa-heart", type: "submit", title: "delete from wish list", style: "color: #cd4343;" )%>
+                <% else %>
+                    <%= link_to("", favourite_product_path(product), method: :post, class: "btn btn-default fa fa-heart-o", type: "submit", title: "Add to wish list", style: "color: #cd4343;") %>
+                <% end %>
+              </div>
+              <!-- 购物车 -->
+              <div class="options-cart">
+        				<button class="btn btn-default" title="Add to cart">
+                  <% if product.quantity.present? && product.quantity > 0 %>
+                    <%= link_to("", add_to_cart_product_path(product), method: :post, class: "fa fa-shopping-cart", style: "color: #2C7B74;") %>
+                  <% else %>
+                  Sold out
+                  <% end %>
+        				</button>
+        			</div>
+
               <% link_to product_path(product) %>
               <% if product.image.present? %>
               <%= link_to image_tag(product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
