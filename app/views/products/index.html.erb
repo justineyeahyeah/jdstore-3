@@ -1,10 +1,10 @@
 <div class="container-fluid all-product-box" style="margin-bottom: 100px;">
 
   <div class="container-fluid" style="padding-top: 30px;">
-    <h2>Recommended For You</h2>
+    <h2>All Books</h2>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks">
-        <% Product.order("price DESC").each do |product| %>
+        <% @products.each do |product| %>
         <div class="book-item">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;padding: 15px;">
             <div class="product-image">
@@ -107,7 +107,7 @@
     <h2>Bestsellers in Kids's</h2>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks">
-        <% @products.each do |product| %>
+      <% Product.order("price DESC").each do |product| %>
         <div class="book-item" style="">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;padding: 15px;">
             <div class="product-image">

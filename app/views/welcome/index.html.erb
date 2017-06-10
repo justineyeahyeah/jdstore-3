@@ -116,7 +116,7 @@
       <h2 style="font-family:Poynter,serif;">Recommended For You</h2>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan1", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks" style="margin-left: 50px;">
-        <% @products.each do |product| %>
+        <% Product.order("price DESC").each do |product| %>
         <div class="book-item">
           <div class="col-xs-12 col-sm-6 col-md-2 products-list" style="width:160px;">
             <div class="product-image">
