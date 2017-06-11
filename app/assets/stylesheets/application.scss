@@ -420,15 +420,22 @@ color: #18433F;
         color: #fff;//字体颜色
     }
 
-// user dropdown
+//dropdown
+#category-dropdown {
+  width: 200px;
+}
+#category-dropdown li {
+  padding: 1px;
+}
+.dropdown-menu>li {
+  width: 100%;//使每行的宽度占满
+}
 .dropdown-menu>li>a {
     color:#705B43;
     width: 100%;
-    margin-right: 5px;
 }
 .dropdown ul.dropdown-menu {
     border-radius:4px;
     box-shadow:none;
-    margin-top:5px;
     width:250px;
 }
