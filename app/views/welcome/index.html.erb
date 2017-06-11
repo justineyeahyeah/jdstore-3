@@ -30,7 +30,7 @@
       <div class="item active">
 
         <!-- Slide Background -->
-        <img src="http://ww4.sinaimg.cn/large/006tNbRwgy1ffz6uetng1j30xr0drtcg.jpg" alt="Bootstrap Touch Slider" class="slide-image"/>
+        <img src="http://ww4.sinaimg.cn/large/006tNbRwgy1fgha4hotupj30xr0drae3.jpg" alt="Bootstrap Touch Slider" class="slide-image"/>
         <!-- <div class="bs-slider-overlay"></div> -->
 
         <div class="container">
@@ -38,7 +38,8 @@
             <!-- Slide Text Layer -->
             <div class="slide-text slide_style_center">
 
-              <p style="font-family:Poynter,serif; color:white; font-size:3em;" data-animation="animated zoomInRight">Gifts to Celebrate Every Dad</p>
+              <p style="font-family:Poynter,serif; color:black; font-size:3em;" data-animation="animated zoomInRight">Plan Your Summer Escape</p>
+              <p style="font-family:Poynter, serif; color:black; font-size:1.5em;" data-animation="animated lightSpeedIn">No plane ticket? No problem. Let summer reading take you places.</p>
               <!-- <p data-animation="animated fadeInLeft">Bootstrap carousel now touch enable slide.</p> -->
               <%= link_to("Shop Now", products_path, :class => "btn btn-default") %>
               <!-- <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">select two</a> -->
@@ -52,12 +53,11 @@
       <div class="item">
 
         <!-- Slide Background -->
-        <img src="http://ww1.sinaimg.cn/large/006tKfTcgy1fg72so05uij30xr0drgqe.jpg" alt="Bootstrap Touch Slider" class="slide-image"/>
+        <img src="http://ww4.sinaimg.cn/large/006tNbRwgy1ffz6uetng1j30xr0drtcg.jpg" alt="Bootstrap Touch Slider" class="slide-image"/>
         <!-- <div class="bs-slider-overlay"></div> -->
         <!-- Slide Text Layer -->
         <div class="slide-text slide_style_center">
-          <p style="font-family:Poynter, serif; color:black; font-size:3.5em;" data-animation="animated flipInX">Plan Your Summer Escape</p>
-          <p style="font-family:Poynter, serif; color:black; font-size:1.5em;" data-animation="animated lightSpeedIn">No plane ticket? No problem. Let summer reading take you places.</p>
+          <p style="font-family:Poynter, serif; color:white; font-size:3.5em;" data-animation="animated flipInX">Gifts to Celebrate Every Dad</p>
           <!-- <a href="http://bootstrapthemes.co/" target="_blank" class="btn btn-default" data-animation="animated fadeInUp">select one</a> -->
           <!-- <a href="http://bootstrapthemes.co/" target="_blank"  class="btn btn-primary" data-animation="animated fadeInDown">Shop Now</a> -->
         </div>
@@ -113,7 +113,7 @@
 
   <!-- 首页精选商品列表 -->
   <div class="container-fluid text-center">
-      <h2 style="font-family:Poynter,serif;">Recommended For You</h2>
+      <h2 style="font-family:Poynter,serif;margin-bottom: 30px;">Recommended For You</h2>
     <p><%= link_to("View all", products_path, class: "pull-right viewspan1", style: "color: #2C7B74;" ) %></p>
     <div class="row RecBooks" style="margin-left: 50px;">
         <% Product.order("price DESC").each do |product| %>
