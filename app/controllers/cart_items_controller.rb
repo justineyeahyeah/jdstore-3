@@ -7,7 +7,7 @@ class CartItemsController < ApplicationController
     @product = @cart_item.product   #为什么需要这一步？cart_item和prodcut是多对多关系？还是一对多关系？还是一对一关系？
     @cart_item.destroy
 
-    flash[:warning] = " Remove successfully #{@product.title} from cart!"
+    flash[:warning] = " #{@product.title} removed successfully from cart!"
     redirect_to :back
   end
 

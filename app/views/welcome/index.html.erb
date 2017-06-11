@@ -132,7 +132,7 @@
               <div class="options-cart">
         				<button class="btn btn-default" title="Add to cart">
                   <% if product.quantity.present? && product.quantity > 0 %>
-                    <%= link_to("", add_to_cart_product_path(product), value: "1", method: :post, class: "fa fa-shopping-cart", style: "color: #2C7B74;") %>
+                    <%= link_to("", add_to_cart_product_path(product), method: :post, class: "fa fa-shopping-cart", style: "color: #2C7B74;") %>
                   <% else %>
                   Sold out
                   <% end %>
