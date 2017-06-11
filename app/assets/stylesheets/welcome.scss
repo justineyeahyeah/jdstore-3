@@ -515,7 +515,6 @@
 
 //消除排名处hover黑色**********属于类<div class="hp-category hp-cat-t624 hp-ordinal">，只取了中间命名。
 .hp-cat-t624 a:hover::before{
-  background-color: #f3f2ed;
   border-color: #f3f2ed; //消除黑色边框；
 }
 
@@ -717,8 +716,38 @@ li {
     border: 1px solid transparent;
 }
 
-a:after {
+.hp-ordinal-cta-shell {
+    clear: left;
+    text-align: center;
+    padding: 0
+}
+
+.hp-ordinal .hp-ordinal-cta {
+    border: 1px solid #175b45;
+    color: #175b45;
     display: inline-block;
+    font-size: 13px;
+    padding: 10px 20px;
+    width: auto!important;
+    margin: 0 auto;
+    float: none;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+.hp-ordinal .hp-ordinal-cta:hover {
+    background-color: #175b45;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none
+}
+
+
+.hp-ordinal a {
     text-decoration: none;
 }
 

@@ -21,7 +21,9 @@
  @import "jquery.raty";
 
 
-
+.html {
+  background-color: #FFFFFF;
+}
 //导航栏
 .navbar-default {
 
@@ -429,9 +431,4 @@ color: #18433F;
     box-shadow:none;
     margin-top:5px;
     width:250px;
-}
-
-
-.a hover{
-  background-color: transparent;
 }

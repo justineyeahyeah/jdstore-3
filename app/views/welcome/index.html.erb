@@ -186,13 +186,7 @@
             <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/03/01/HobbiesCollectibles_CategoryPod.jpg" alt=""/>
           </a>
         </div>
-        <!--
-  <div class="hp-category">
-  <a href="/b/textbooks/_/N-8q9" onclick="set_cookie('hpcategories_textbooks_na_imagetext');">
-  <div class="hp-category-name">Textbooks</div>
-  <img src="//dispatch.barnesandnoble.com/content/dam/ccr/homepage/daily/2017/categories/0112/Textbooks_CategoryPod_.jpg" alt="" / >
-  </a>
-  </div> -->
+
         <div class="hp-category">
           <a href="/products?category=Kids" onclick="set_cookie('hpcategories_kids_na_imagetext');">
             <div class="hp-category-name">
@@ -252,7 +246,7 @@
             </li>
           </ol>
           <div class="hp-ordinal-cta-shell">
-            <a onclick="set_cookie(hpcategories_b-n-top-100_see-all_text);" class="hp-ordinal-cta" href="#">&nbsp;See All&nbsp;</a>
+            <%= link_to("See All", products_path, class: "hp-ordinal-cta") %>
           </div>
         </div>
       </div>
@@ -298,7 +292,7 @@
         </a>
       </div>
       <div class="hp-category-promo bnreads">
-        <a href="#" onclick="set_cookie('hpcategories_bnreads_na_imagetext');">
+        <a href="/products" onclick="set_cookie('hpcategories_bnreads_na_imagetext');">
           <div class="hp-category-promo-name">
             B&amp;N Reads
           </div>
