@@ -205,11 +205,11 @@
           <ol id="hp-top-100">
             <% Product.limit(5).sort_by{|product| product.comments.count}.reverse.each_with_index do |product, index| %>
             <li class="books-ordinal">
-                <a href="/products/:id/">
+                <%= link_to product_path(product) do %>
                   <span class="hp-ordinal-position"><%= index+1 %></span>
                   <span class="hp-ordinal-title"><%= product.title %></span>
                   <span class="hp-ordinal-author">by <%= product.author %></span>
-                </a>
+                <% end %>
             </li>
             <% end %>
           </ol>
