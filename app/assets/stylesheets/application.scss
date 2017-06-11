@@ -121,7 +121,6 @@ width: 500px;
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
-  padding: 30px;
   max-width: 350px;
   width: 100% !important;
   background-color: #F7F7F7;
@@ -130,9 +129,12 @@ width: 500px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   font-family: roboto;
+  padding: 20px;
+  border: 1px solid #d7d7d7;
+  background-color: #f3efea;
 }
 
-.loginmodal-container h1 {
+.loginmodal-container .LoginBox-headerArea .LoginBox-header h1 {
   text-align: center;
   font-size: 1.8em;
   font-family: roboto;
@@ -202,17 +204,39 @@ width: 500px;
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  color: #2c7b74;
   font-weight: 400;
   text-align: center;
   display: inline-block;
-  opacity: 0.6;
   transition: opacity ease 0.5s;
 }
 
 .login-help{
   font-size: 12px;
 }
+
+//登录页面
+.LoginBox-header {
+    display: inline-block;
+    padding-right: 12px;
+    color: #222;
+    font-size: 30px;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0
+}
+
+.LoginBox-textboxArea {
+  padding-top: 15px;
+}
+
+@media screen and (max-width: 425px) {
+    .LoginBox-header {
+        border-right:none
+    }
+}
+
+
+
 
 
 //使购物车页面居中

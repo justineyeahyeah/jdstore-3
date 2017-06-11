@@ -89,17 +89,24 @@
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog" role="document">
     <div class="loginmodal-container">
-       <h2>Log in</h2>
-       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-         <div class="form-inputs">
-           <%= f.input :email, required: false, autofocus: true %>
-           <%= f.input :password, required: false %>
-           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-         </div>
-         <div class="form-actions">
-           <%= f.button :submit, "Log in" %>
-         </div>
-       <% end %>
+      <div class="LoginBox-headerArea">
+        <h1 class="LoginBox-header">Sign In</h1>
+      </div>
+      <div class="LoginBox-textboxArea">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email, required: false, autofocus: true %>
+      <%= f.input :password, required: false %>
+      </div>
+      <div class="LoginBox-staySignedInArea">
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+    </div>
+    <div class="LoginBox-submitArea">
+      <%= f.button :submit, "Sign in", style: "background-color: #35938B;" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
@@ -107,7 +114,9 @@
 <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="loginmodal-container">
-      <h2>Sign up</h2>
+      <div class="LoginBox-headerArea">
+        <h1 class="LoginBox-header" style="margin-top: 5px;padding-bottom: 15px;">Sign Up</h1>
+      </div>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -116,7 +125,7 @@
           <%= f.input :password_confirmation, required: true %>
         </div>
         <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Sign up", style: "background-color: #35938B;" %>
         </div>
       <% end %>
     </div>
