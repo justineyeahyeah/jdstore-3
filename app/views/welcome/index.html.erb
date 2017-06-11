@@ -201,49 +201,17 @@
           <div class="hp-ordinal-hdr">
             Top 100
           </div>
+
           <ol id="hp-top-100">
-            <li>
-              <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_House-of-Spies/Daniel-Silva_text);
-           " href="#" title="House of Spies (Signed Book) (Gabriel Allon Series #17)">
-                <span class="hp-ordinal-position">1</span>
-                <span class="hp-ordinal-title">House of Spies (Signed Book) (Gabriel Allon…</span>
-                <span class="hp-ordinal-author">by Daniel Silva</span>
-              </a>
+            <% Product.limit(5).sort_by{|product| product.comments.count}.reverse.each_with_index do |product, index| %>
+            <li class="books-ordinal">
+                <a href="/products/:id/">
+                  <span class="hp-ordinal-position"><%= index+1 %></span>
+                  <span class="hp-ordinal-title"><%= product.title %></span>
+                  <span class="hp-ordinal-author">by <%= product.author %></span>
+                </a>
             </li>
-
-            <li>
-              <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Astrophysics-for-People-in-a-Hurry/Neil-deGrasse-Tyson_text);" href="#" title="Astrophysics for People in a Hurry">
-                <span class="hp-ordinal-position">2</span>
-                <span class="hp-ordinal-title">Astrophysics for People in a Hurry</span>
-                <span class="hp-ordinal-author">by Neil deGrasse Tyson</span>
-              </a>
-            </li>
-
-            <li>
-              <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_The-Silent-Corner/Dean-Koontz_text);" href="#" title="The Silent Corner (Signed Book)">
-                <span class="hp-ordinal-position">3</span>
-                <span class="hp-ordinal-title">The Silent Corner (Signed Book)</span>
-                <span class="hp-ordinal-author">by Dean Koontz</span>
-              </a>
-            </li>
-
-            <li>
-              <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Lord-of-Shadows/Cassandra-Clare_text);
-           " href="#" title="Lord of Shadows (Dark Artifices Series #2) (B&amp;N Exclusive Edition)">
-                <span class="hp-ordinal-position">4</span>
-                <span class="hp-ordinal-title">Lord of Shadows (Dark Artifices Series #2)…</span>
-                <span class="hp-ordinal-author">by Cassandra Clare</span>
-              </a>
-            </li>
-
-            <li>
-              <a onclick="set_cookie(hpcategories_B&amp;N-Top-100_Into-the-Water/Paula-Hawkins_text);
-           " href="#" title="Into the Water">
-                <span class="hp-ordinal-position">5</span>
-                <span class="hp-ordinal-title">Into the Water</span>
-                <span class="hp-ordinal-author">by Paula Hawkins</span>
-              </a>
-            </li>
+            <% end %>
           </ol>
           <div class="hp-ordinal-cta-shell">
             <%= link_to("See All", products_path, class: "hp-ordinal-cta") %>

@@ -60,9 +60,9 @@ Product.create!(title: "Oh, The Places You'll Go!",
     image: open("http://ww2.sinaimg.cn/large/006tNc79gy1fg4yw93bydj30a10dvq3y.jpg")
     )
 
-Product.create!(title: "Harry Potter and the Cursed Child, Parts 1 & 2, Special Rehearsal Edition Script",
+Product.create!(title: "Harry Potter and the Cursed Child, Parts 1 & 2",
     author: "J.K. Rowling & Jack Thorne",
-    description: "The Eighth Story. Nineteen Years Later.
+    description: "The Eighth Story. Nineteen Years Later. Special Rehearsal Edition Script.
 
     Based on an original new story by J.K. Rowling, Jack Thorne and John Tiffany, a new play by Jack Thorne, Harry Potter and the Cursed Child is the eighth story in the Harry Potter series and the first official Harry Potter story to be presented on stage. The play will receive its world premiere in London’s West End on July 30, 2016. ",
     publisher: "Arthur A. Levine Books; Special Rehearsal Script ed. edition",
