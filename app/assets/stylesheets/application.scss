@@ -440,7 +440,7 @@ color: #18433F;
     width:250px;
 }
 
-//
+//account-settings
 div.account-settings {
   margin-top: 50px;
   margin-bottom: 100px;
@@ -452,4 +452,42 @@ div.account-settings {
 .update-btn .button {
   background-color: #35938B;
   color: #fff;
+}
+
+//devise-login
+div.devise-login {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 10px 30px 30px 30px;
+  background-color: #f3efea;
+  border: 1px solid #d7d7d7;
+}
+
+.login-btn .btn {
+  background-color: #35938B;
+  color: #fff;
+}
+
+.devise-login a {
+  margin: 10px auto;
+  color: #35938B;
+}
+
+//devise-signup
+div.devise-signup {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 10px 30px 30px 30px;
+  background-color: #f3efea;
+  border: 1px solid #d7d7d7;
+}
+
+.signup-btn .btn {
+  background-color: #35938B;
+  color: #fff;
+}
+
+.devise-signup a {
+  margin: 10px auto;
+  color: #35938B;
 }
