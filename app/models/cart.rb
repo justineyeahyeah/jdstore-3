@@ -18,6 +18,7 @@ class Cart < ApplicationRecord
       cart_item = cart_items.find_by_product_id(product.id)
     else
       cart_item = cart_items.build
+      cart_item.quantity = 1
     end
     cart_item.product = product
     cart_item.quantity += quantity

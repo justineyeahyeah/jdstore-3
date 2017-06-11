@@ -13,10 +13,37 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to carts_path do %>
-            Cart <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.cart_items.count %> )
-          <% end %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> Cart ( <%= current_cart.cart_items.count %> )<span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu" style="width: 400px;">
+            <% current_cart.cart_items.each do |cart_item| %>
+              <li>
+                  <span class="cart-item">
+                    <span class="cart-item-left">
+                      <span class="media" style="width: 120px; height: 180px;">
+                      <%= link_to product_path(cart_item.product) do %>
+                        <% if cart_item.product.image.present? %>
+                          <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>
+                        <% else %>
+                          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                        <% end %>
+                      <% end %>
+                    </span>
+                        <span class="cart-item-info">
+                            <span style="color: #35938B;font-weight: bold;"> <%= cart_item.product.title %> </span>
+                            <span> quantity: <%= cart_item.quantity %></span>
+                            <span> $ <strong><%= cart_item.product.price %></strong> <small>each</small> </span>
+                        </span>
+                    </span>
+                    <span class="cart-item-right">
+                        <button class="btn btn-xs btn-danger pull-right"><%= link_to("x", cart_item_path(cart_item.product_id), method: :delete, style: "color: #FFFFFF;")%></button>
+                    </span>
+                </span>
+              </li>
+              <hr>
+              <% end %>
+              <li><a class="text-center" href="/carts/">View Cart</a></li>
+          </ul>
         </li>
         <% if !current_user %>
           <li><a href="#" data-toggle="modal" data-target="#signup-modal"> <i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up </a></li>

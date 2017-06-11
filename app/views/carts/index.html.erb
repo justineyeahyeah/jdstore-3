@@ -24,7 +24,7 @@
                   <% current_cart.cart_items.each do |cart_item| %>
                     <tr>
                         <td class="col-sm-1 col-md-1">
-                        <div class="media" style="width: 72px; height: 72px;">
+                        <div class="media" style="width: 120px; height: 180px;">
                         <%= link_to product_path(cart_item.product) do %>
                           <% if cart_item.product.image.present? %>
                             <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail" ) %>

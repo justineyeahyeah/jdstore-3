@@ -487,7 +487,51 @@ div.devise-signup {
   color: #fff;
 }
 
+
+
 .devise-signup a {
   margin: 10px auto;
   color: #35938B;
+}
+
+//.dropdown-cart
+ul.dropdown-cart{
+    min-width:250px;
+}
+ul.dropdown-cart li .cart-item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+}
+ul.dropdown-cart li .cart-item:hover{
+    background-color:#f3f3f3;
+}
+ul.dropdown-cart li .cart-item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+ul.dropdown-cart li .cart-item-left{
+    float:left;
+}
+ul.dropdown-cart li .cart-item-left img,
+ul.dropdown-cart li .cart-item-left span.cart-item-info{
+    float:left;
+}
+ul.dropdown-cart li .cart-item-left span.cart-item-info{
+    margin-left:10px;
+}
+ul.dropdown-cart li .cart-item-left span.cart-item-info span{
+    display:block;
+    width: 200px;
+}
+ul.dropdown-cart li .cart-item-right{
+    float:right;
+}
+ul.dropdown-cart li .cart-item-right button{
+    
 }

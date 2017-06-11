@@ -132,7 +132,7 @@
               <div class="options-cart">
         				<button class="btn btn-default" title="Add to cart">
                   <% if product.quantity.present? && product.quantity > 0 %>
-                    <%= link_to("", add_to_cart_product_path(product), method: :post, class: "fa fa-shopping-cart", style: "color: #2C7B74;") %>
+                    <%= link_to("", add_to_cart_product_path(product), value: "1", method: :post, class: "fa fa-shopping-cart", style: "color: #2C7B74;") %>
                   <% else %>
                   Sold out
                   <% end %>
@@ -141,7 +141,7 @@
 
               <% link_to product_path(product) %>
               <% if product.image.present? %>
-              <%= link_to image_tag(product.image.thumb.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
+              <%= link_to image_tag(product.image.medium.url, class: "product-list-style-img img-responsive center-block"), product_path(product) %>
             <% else %>
               <%= link_to image_tag("http://placehold.it/200x200&text=No Pic", class: "product-list-style-img img-responsive center-block"), product_path(product) %>
               <% end %>
@@ -350,7 +350,7 @@
         <p class="slogan">Satisfaction Guarantee</p>
       </div>
       <div class="col-sm-3">
-        <span class="glyphicon glyphicon-thumbs-up logo-small"></span>
+        <span class="glyphicon glyphicon-mediums-up logo-small"></span>
         <h3 class="logo">41K+</h3>
         <p class="slogan">5 Star Ratings</p>
       </div>
